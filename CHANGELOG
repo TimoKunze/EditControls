@@ -1,0 +1,238 @@
+Version 1.10.2 - DD/MM/YYYY
+
+- Project published on GitHub.
+
+
+
+Version 1.10.1 - 28/01/2016
+
+- FIX: The controls could crash during OLE drag'n'drop.
+- FIX: The controls could crash the other process during OLE drag'n'drop, especially when IOLEDataObject::SetDropDescription() had been called.
+
+
+
+Version 1.10.0 - 22/01/2016
+
+- Added the FinishOLEDragDrop method to each control. It should not be used if not really needed. It can be used to hide the drag image if execution of the OLEDragDrop event takes a long time or if a message is displayed from within this event.
+- Initial support for Windows 10.
+
+
+
+Version 1.9.2 - 10/11/2014
+
+- Fixed drawing of read-only, multi-line text boxes on Windows Vista and newer.
+
+
+
+Version 1.9.1 - 04/07/2014
+
+- FIX: The mouse events of the UpDownTextBox control have been raised with slightly wrong coordinates.
+
+
+
+Version 1.9.0 - 01/01/2014
+
+- Added the MouseWheel events for handling mouse wheel rotations.
+- Added the XClick and XDblClick events for support of the extended mouse buttons.
+- Extended the Mouse* events to support the extended mouse buttons.
+- Reactivated data-binding capabilities. When the library is registered, it will call regtlib.exe msdatsrc.tlb before registering itself. This seems to fix the mess caused by the broken Windows Update from the beginning of this year.
+- FIX: The Font and MouseIcon properties could leak GDI resources.
+
+
+
+Version 1.8.5 - 06/10/2013
+
+- Slightly reduced GDI resource usage.
+
+
+
+Version 1.8.4 - 13/07/2013
+
+- FIX: The ITextBox::SelectedText property did omit the last character of the selection, if it also has been the last character in the control.
+- FIX: The IUpDownTextBox::SelectedText property did omit the last character of the selection, if it also has been the last character in the control.
+- FIX: The IUpDownTextBox::IsTextTruncated method ignored the last character.
+
+
+
+Version 1.8.3 - 28/03/2013
+
+- Disabled data-binding capabilities as they cause "Object library not registered" errors when adding the control library to the project. This problem might be related to a recent Windows Update.
+
+
+
+Version 1.8.2 - 14/10/2012
+
+- FIX: On Windows XP with themes enabled, the TextBox and UpDownTextBox could be drawn without text if they have been set to read-only.
+- FIX: The ResizedControlWindow event was not fired when it should have been fired.
+
+
+
+Version 1.8.1 - 22/09/2012
+
+- FIX: The IPAddressControl destroyed the currently set font on control destruction. If the same font was still used in another control, this could cause the wrong font being used. Note: This happened only if UseSystemFont was set to False.
+- Initial support for Windows 8.
+
+
+
+Version 1.8.0 - 11/03/2012
+
+- Rewrote the drawing code of all controls for the case that the client application uses version 6.x of comctl32.dll. This should fix drawing issues and improve performance.
+- Added a new sample "Search Box" which demonstrates how to use the TextBox control (and the ToolBarControls) to build a neat search box.
+- Reimplemented the subclassing code of the VB6 samples to make it more robust.
+
+
+
+Version 1.7.0 - 01/11/2011
+
+- Added the IHotKeyBox::DetectDoubleClicks property to completely deactivate double clicks and handle them as two single clicks instead.
+- Added the IUpDownTextBox::DetectDoubleClicks property to completely deactivate double clicks for the up-down window and handle them as two single clicks instead. Attention: This property defaults to False!
+
+
+
+Version 1.6.2 - 16/08/2011
+
+- FIX: Changing the ITextBox::HAlignment property at runtime did not always have the expected effect.
+- FIX: Changing the IUpDownTextBox::HAlignment property at runtime did not always have the expected effect.
+- FIX: Changing the ITextBox::RightToLeft property at runtime did not always have the expected effect.
+
+
+
+Version 1.6.1 - 21/05/2011
+
+- FIX: Disabling the controls did not move the keyboard focus to the next control in the tab order.
+- FIX: The ResizedControlWindow event was fired when actually nothing had changed.
+- FIX: The UpDownTextBox control did not redraw automatically when changing the HAlignment property.
+
+
+
+Version 1.6.0 - 07/01/2011
+
+- FIX: The controls could crash when they were destroyed.
+- FIX: Due do a bug in Microsoft ATL, the controls could lose keyboard focus when they shouldn't. This problem occured in MDI applications only. Many thanks to Peter Schellenbach for his help.
+- Switched to Visual C++ 2010 and dropped support for Windows 2000.
+
+
+
+Version 1.5.0 - 15/08/2010
+
+- Added a new property page that can be used to enter Unicode texts at design time.
+- FIX: Visual Basic 6 didn't raise the Validate event correctly.
+- FIX: IOLEDataObject::SetDropDescription could cause crashes in other programs.
+
+
+
+Version 1.4.2 - 01/01/2010
+
+- Improved performance.
+- FIX: If the controls were placed on a Form for which the KeyPreview feature was activated, the Form_Key* handler didn't receive key strokes like Alt+PgDown or Alt+Left, if the controls had the keyboard focus.
+- FIX: The 'shift' parameter that many events have, often missed the ALT key.
+- Deploy (stripped) symbols with the binaries to make debugging easier. This are the pdb files in case you wonder.
+
+
+
+Version 1.4.1 - 03/10/2009
+
+- Fixed several drawing issues introduced with version 1.4.0.
+- Improved support for Aero drag images.
+
+
+
+Version 1.4.0 - 25/07/2009
+
+- Added the IHotKeyBox::DisabledBackColor property.
+- Added the IIPAddressBox::DisabledBackColor property.
+- Added the ITextBox::DisabledBackColor property.
+- Added the ITextBox::DisabledForeColor property.
+- Added the ITextBox::OLEDragImageStyle property.
+- Added the IUpDownTextBox::DisabledBackColor property.
+- Added the IUpDownTextBox::DisabledForeColor property.
+- Massively reduced the usage of GDI handles.
+- Improved performance.
+- Made some internal changes that will make it easier for me to keep binary compatibility in future.
+
+
+
+Version 1.3.3 - 01/03/2009
+
+- Initial support for Windows 7.
+- Extended the AppearanceConstants enumeration by 'aDefault'.
+- Extended the DropDescriptionIconConstants enumeration by 'ddiUseDefault'.
+- Fixed some small OLE drag'n'drop bugs.
+
+
+
+Version 1.3.2 - 05/12/2008
+
+- FIX: Changing the ITextBox::MultiLine property at runtime didn't have any effect. Thanks to Andy Dufresne for reporting this bug.
+
+
+
+Version 1.3.1 - 28/11/2008
+
+- FIX: The TAB key didn't move the focus to the next control if the controls were placed inside UserControls.
+- FIX: Drop descriptions didn't work as expected if the drag source was a 64 bit app.
+
+
+
+Version 1.3.0 - 30/10/2008
+
+- Added the ITextBox::LastVisibleLine property.
+- Added the ITextBox::LineHeight property.
+- Added the ITextBox::TextLength property.
+- Slightly changed handling of the situation where the user presses a mouse button, drags the mouse out of the control's client area and releases the button.
+- FIX: The ITextBox::FormattingRectangle* properties were ignored sometimes.
+- Fixed some GDI handle leaks.
+- Removed most of the data-binding stuff (it was probably broken anyway) and fixed the remaining parts.
+- Added the Line Numbers sample. It demonstrates how to use the LeftMargin property to draw line numbers on the left side of a TextBox.
+
+
+
+Version 1.2.0 - 29/05/2008
+
+- Added the _ITextBoxEvents::OLEDragEnterPotentialTarget event.
+- Added the _ITextBoxEvents::OLEDragLeavePotentialTarget event.
+- Added the _ITextBoxEvents::OLEReceivedNewData event.
+- Extended ITextBox::OLEDrag() by the parameter 'itemCountToDisplay'.
+- TextBox: Support insertion marks for empty controls.
+- Changed ITextBox::PositionToCharIndex() so it doesn't fail anymore if the control is empty or a point outside the client area is passed.
+- Changed IUpDownTextBox::PositionToCharIndex() so it doesn't fail anymore if the control is empty or a point outside the client area is passed.
+- FIX: Ignore calls to IOLEDataObject::SetDropDescription() if the drag image is in classic style.
+- FIX: The DEL key didn't work if the controls were placed inside UserControls.
+- Fixed some drawing glitches.
+- Switched to Visual C++ 2008 and dropped support for Windows 9x, Me and NT 4.0.
+- Decreased the binaries' size.
+- Improved the documentation.
+
+
+
+Version 1.1.0 - 05/12/2007
+
+- Added the IOLEDataObject::GetDropDescription() method.
+- Added the IOLEDataObject::SetDropDescription() method.
+- FIX: Keyboard input wasn't processed if the controls were placed within a VB6 UserControl.
+- Improved the documentation.
+
+
+
+Version 1.0.2 - 31/08/2007
+
+- FIX: Setting the ITextBox::Text property could be ignored in single-line textboxes.
+- FIX: Setting the IUpDownTextBox::Text property could be ignored.
+- FIX: Changes were not applied implicitly when jumping between multiple instances of the control with the property pages opened.
+
+
+
+Version 1.0.1 - 27/02/2007
+
+- FIX: The ITextBox::SelectedTextMousePointer property didn't work with horizontal scrolling offsets.
+- Decreased the binaries' size.
+- Improved the documentation.
+- Ported the WTL samples to WTL 8.0.
+- Made the samples DPI aware.
+- Linked the new bug tracking system.
+
+
+
+Version 1.0.0 - 15/10/2006
+
+- First public release.
