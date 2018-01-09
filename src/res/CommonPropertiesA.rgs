@@ -1,0 +1,25 @@
+HKCR
+{
+	EditCtlsA.CommonProperties.1 = s 'TimoSoft CommonProperties Class 1.10 (ANSI)'
+	{
+		CLSID = s '{BE3824B6-1761-494b-8399-648B23834DB8}'
+	}
+	EditCtlsA.CommonProperties = s 'TimoSoft CommonProperties Class (ANSI)'
+	{
+		CLSID = s '{BE3824B6-1761-494b-8399-648B23834DB8}'
+		CurVer = s 'EditCtlsA.CommonProperties.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BE3824B6-1761-494b-8399-648B23834DB8} = s 'TimoSoft CommonProperties Class (ANSI)'
+		{
+			ProgID = s 'EditCtlsA.CommonProperties.1'
+			VersionIndependentProgID = s 'EditCtlsA.CommonProperties'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{EA57D88C-8144-415a-9666-B7067B74C295}'
+		}
+	}
+}

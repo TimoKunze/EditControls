@@ -1,0 +1,33 @@
+The following parts of the msctls_hotkey32, SysIPAddress32, Edit and msctls_updown32 API (Windows 10) are not used:
+
+Control styles:
+---------------
+- ES_WANTRETURN (https://msdn.microsoft.com/en-us/library/ms672063.aspx)
+	-> doesn't seem to be required
+
+Messages:
+---------
+- EM_GETHANDLE (https://msdn.microsoft.com/en-us/library/ms672071.aspx)
+	-> "Windows 95/98/Me: Although this message returns a nonzero value, the resulting value is not useful to a 32-bit application."
+	-> doesn't seem to have any real use for VB6 apps
+	-> can be used easily via SendMessage()
+- EM_SETHANDLE (https://msdn.microsoft.com/en-us/library/ms672094.aspx)
+	-> doesn't seem to have any real use for VB6 apps
+	-> can be used easily via SendMessage()
+- EM_GETHILITE (https://msdn.microsoft.com/en-us/library/aa361869.aspx)
+	-> "Not currently implemented."
+	-> https://blogs.msdn.com/oldnewthing/archive/2007/10/25/5658731.aspx
+- EM_SETHILITE (https://msdn.microsoft.com/en-us/library/aa361870.aspx)
+	-> "Not currently implemented."
+	-> https://blogs.msdn.com/oldnewthing/archive/2007/10/25/5658731.aspx
+- EM_LIMITTEXT (https://msdn.microsoft.com/en-us/library/ms672084.aspx)
+	-> identical to EM_SETLIMITTEXT
+- EM_NOSETFOCUS
+- EM_TAKEFOCUS
+
+Flags:
+------
+- EM_GETIMESTATUS/EIMES_GETCOMPSTRATONCE (https://msdn.microsoft.com/en-us/library/ms672072.aspx)
+	-> might be too low level
+- EM_SETIMESTATUS/EIMES_GETCOMPSTRATONCE (https://msdn.microsoft.com/en-us/library/ms672095.aspx)
+	-> might be too low level

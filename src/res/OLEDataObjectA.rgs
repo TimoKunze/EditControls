@@ -1,0 +1,25 @@
+HKCR
+{
+	EditCtlsA.OLEDataObject.1 = s 'TimoSoft OLEDataObject Class 1.10 (ANSI)'
+	{
+		CLSID = s '{585FAC58-3019-4f4e-BF7F-1750FC02D54B}'
+	}
+	EditCtlsA.OLEDataObject = s 'TimoSoft OLEDataObject Class (ANSI)'
+	{
+		CLSID = s '{585FAC58-3019-4f4e-BF7F-1750FC02D54B}'
+		CurVer = s 'EditCtlsA.OLEDataObject.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {585FAC58-3019-4f4e-BF7F-1750FC02D54B} = s 'TimoSoft OLEDataObject Class (ANSI)'
+		{
+			ProgID = s 'EditCtlsA.OLEDataObject.1'
+			VersionIndependentProgID = s 'EditCtlsA.OLEDataObject'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{EA57D88C-8144-415a-9666-B7067B74C295}'
+		}
+	}
+}

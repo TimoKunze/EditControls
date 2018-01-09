@@ -1,0 +1,9 @@
+; EditCtlsA.def: Declares the module parameters. (ANSI version)
+
+LIBRARY      "EditCtlsA.ocx"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE

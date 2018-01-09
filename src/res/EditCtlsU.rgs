@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'EditCtlsU'
+		'EditCtlsU.OCX'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}

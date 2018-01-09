@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General", "General", "{4DF4B15F-7036-4ECF-A4C2-2787AC5A6337}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DragDrop", "General\Drag'n'Drop\DragDrop.vcxproj", "{F3C8986B-0331-4795-9DD5-88DE688F0386}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Events", "General\Events\Events.vcxproj", "{ADDFE0C9-60B8-444B-9D04-00F3BAEC492D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PerformanceTest", "General\Performance Test\PerformanceTest.vcxproj", "{6B6DE1B8-C3C5-41FA-AC02-7A9DB2ABFABC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3C8986B-0331-4795-9DD5-88DE688F0386}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F3C8986B-0331-4795-9DD5-88DE688F0386}.Debug|Win32.Build.0 = Debug|Win32
+		{F3C8986B-0331-4795-9DD5-88DE688F0386}.Release|Win32.ActiveCfg = Release|Win32
+		{F3C8986B-0331-4795-9DD5-88DE688F0386}.Release|Win32.Build.0 = Release|Win32
+		{ADDFE0C9-60B8-444B-9D04-00F3BAEC492D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ADDFE0C9-60B8-444B-9D04-00F3BAEC492D}.Debug|Win32.Build.0 = Debug|Win32
+		{ADDFE0C9-60B8-444B-9D04-00F3BAEC492D}.Release|Win32.ActiveCfg = Release|Win32
+		{ADDFE0C9-60B8-444B-9D04-00F3BAEC492D}.Release|Win32.Build.0 = Release|Win32
+		{6B6DE1B8-C3C5-41FA-AC02-7A9DB2ABFABC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6B6DE1B8-C3C5-41FA-AC02-7A9DB2ABFABC}.Debug|Win32.Build.0 = Debug|Win32
+		{6B6DE1B8-C3C5-41FA-AC02-7A9DB2ABFABC}.Release|Win32.ActiveCfg = Release|Win32
+		{6B6DE1B8-C3C5-41FA-AC02-7A9DB2ABFABC}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F3C8986B-0331-4795-9DD5-88DE688F0386} = {4DF4B15F-7036-4ECF-A4C2-2787AC5A6337}
+		{ADDFE0C9-60B8-444B-9D04-00F3BAEC492D} = {4DF4B15F-7036-4ECF-A4C2-2787AC5A6337}
+		{6B6DE1B8-C3C5-41FA-AC02-7A9DB2ABFABC} = {4DF4B15F-7036-4ECF-A4C2-2787AC5A6337}
+	EndGlobalSection
+EndGlobal

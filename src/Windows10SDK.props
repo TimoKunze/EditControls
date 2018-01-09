@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_PropertySheetDisplayName>Windows 10 SDK</_PropertySheetDisplayName>
+    <ExecutablePath>$(ProgramFiles)\Windows Kits\10\bin\x86;$(ExecutablePath);$(WindowsSdkMSBuildTools);$(SystemRoot)\SysWow64;$(FxCopDir);$(PATH);</ExecutablePath>
+    <IncludePath>$(ProgramFiles)\Windows Kits\10\include\10.0.10586.0\um;$(ProgramFiles)\Windows Kits\10\include\10.0.10586.0\shared;$(IncludePath);$(VCInstallDir)atlmfc\include</IncludePath>
+    <LibraryPath>$(ProgramFiles)\Windows Kits\10\Lib\10.0.10586.0\um\x86;$(LibraryPath);$(VSInstallDir);$(VSInstallDir)lib</LibraryPath>
+    <ExcludePath>$(ProgramFiles)\Windows Kits\10\include\10.0.10586.0\um;$(ProgramFiles)\Windows Kits\10\include\10.0.10586.0\shared;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkMSBuildTools);$(VCInstallDir)atlmfc\lib;$(VCInstallDir)lib</ExcludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup />
+  <ItemGroup />
+</Project>

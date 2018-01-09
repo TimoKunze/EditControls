@@ -1,0 +1,25 @@
+HKCR
+{
+	EditCtlsA.UpDownAccelerator.1 = s 'TimoSoft UpDownAccelerator Class 1.10 (ANSI)'
+	{
+		CLSID = s '{5BF36676-BC41-4f40-8605-20D58578202D}'
+	}
+	EditCtlsA.UpDownAccelerator = s 'TimoSoft UpDownAccelerator Class (ANSI)'
+	{
+		CLSID = s '{5BF36676-BC41-4f40-8605-20D58578202D}'
+		CurVer = s 'EditCtlsA.UpDownAccelerator.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5BF36676-BC41-4f40-8605-20D58578202D} = s 'TimoSoft UpDownAccelerator Class (ANSI)'
+		{
+			ProgID = s 'EditCtlsA.UpDownAccelerator.1'
+			VersionIndependentProgID = s 'EditCtlsA.UpDownAccelerator'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{EA57D88C-8144-415a-9666-B7067B74C295}'
+		}
+	}
+}

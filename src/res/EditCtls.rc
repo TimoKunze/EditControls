@@ -1,0 +1,368 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+#ifdef _UNICODE
+  IDB_HOTKEYBOX           BITMAP                  "HotKeyBoxU.bmp"
+  IDB_IPADDRESSBOX        BITMAP                  "IPAddressBoxU.bmp"
+  IDB_TEXTBOX             BITMAP                  "TextBoxU.bmp"
+  IDB_UPDOWNTEXTBOX       BITMAP                  "UpDownTextBoxU.bmp"
+#else
+  IDB_HOTKEYBOX           BITMAP                  "HotKeyBoxA.bmp"
+  IDB_IPADDRESSBOX        BITMAP                  "IPAddressBoxA.bmp"
+  IDB_TEXTBOX             BITMAP                  "TextBoxA.bmp"
+  IDB_UPDOWNTEXTBOX       BITMAP                  "UpDownTextBoxA.bmp"
+#endif
+IDB_TOOLBARENABLED      BITMAP                  "ToolBar enabled.bmp"
+IDB_TOOLBARDISABLED     BITMAP                  "ToolBar disabled.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// JPG
+//
+
+IDB_ABOUT               JPG                      "About.jpg"
+IDB_PAYPAL              JPG                      "Paypal.jpg"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION VERSION_MAJOR,VERSION_MINOR,VERSION_REVISION1,VERSION_BUILD
+ PRODUCTVERSION VERSION_MAJOR,VERSION_MINOR,VERSION_REVISION1,VERSION_BUILD
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "Designed for Visual Basic. This software is freeware!"
+#ifdef _UNICODE
+            VALUE "FileDescription", "Edit ActiveX Controls (Unicode)"
+#else
+            VALUE "FileDescription", "Edit ActiveX Controls (ANSI)"
+#endif
+            VALUE "FileVersion", STRFILEVERSION
+#ifdef _UNICODE
+            VALUE "InternalName", "EditCtlsU.ocx"
+#else
+            VALUE "InternalName", "EditCtlsA.ocx"
+#endif
+            VALUE "LegalCopyright", "Copyright (C) 2006-2018 Timo ""TimoSoft"" Kunze"
+#ifdef _UNICODE
+            VALUE "OriginalFilename", "EditCtlsU.ocx"
+#else
+            VALUE "OriginalFilename", "EditCtlsA.ocx"
+#endif
+            VALUE "ProductName", "TimoSoft EditControls"
+            VALUE "ProductVersion", STRPRODUCTVERSION
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+#ifdef _UNICODE
+  IDR_EDITCTLS                    REGISTRY                "EditCtlsU.rgs"
+  IDR_HOTKEYBOX                   REGISTRY                "HotKeyBoxU.rgs"
+  IDR_IPADDRESSBOX                REGISTRY                "IPAddressBoxU.rgs"
+  IDR_TEXTBOX                     REGISTRY                "TextBoxU.rgs"
+  IDR_UPDOWNTEXTBOX               REGISTRY                "UpDownTextBoxU.rgs"
+  IDR_UPDOWNACCELERATOR           REGISTRY                "UpDownAcceleratorU.rgs"
+  IDR_UPDOWNACCELERATORS          REGISTRY                "UpDownAcceleratorsU.rgs"
+  IDR_VIRTUALUPDOWNACCELERATOR    REGISTRY                "VirtualUpDownAcceleratorU.rgs"
+  IDR_VIRTUALUPDOWNACCELERATORS   REGISTRY                "VirtualUpDownAcceleratorsU.rgs"
+  IDR_OLEDATAOBJECT               REGISTRY                "OLEDataObjectU.rgs"
+  IDR_COMMONPROPERTIES            REGISTRY                "CommonPropertiesU.rgs"
+  IDR_STRINGPROPERTIES            REGISTRY                "StringPropertiesU.rgs"
+#else
+  IDR_EDITCTLS                    REGISTRY                "EditCtlsA.rgs"
+  IDR_HOTKEYBOX                   REGISTRY                "HotKeyBoxA.rgs"
+  IDR_IPADDRESSBOX                REGISTRY                "IPAddressBoxA.rgs"
+  IDR_TEXTBOX                     REGISTRY                "TextBoxA.rgs"
+  IDR_UPDOWNTEXTBOX               REGISTRY                "UpDownTextBoxA.rgs"
+  IDR_UPDOWNACCELERATOR           REGISTRY                "UpDownAcceleratorA.rgs"
+  IDR_UPDOWNACCELERATORS          REGISTRY                "UpDownAcceleratorsA.rgs"
+  IDR_VIRTUALUPDOWNACCELERATOR    REGISTRY                "VirtualUpDownAcceleratorA.rgs"
+  IDR_VIRTUALUPDOWNACCELERATORS   REGISTRY                "VirtualUpDownAcceleratorsA.rgs"
+  IDR_OLEDATAOBJECT               REGISTRY                "OLEDataObjectA.rgs"
+  IDR_COMMONPROPERTIES            REGISTRY                "CommonPropertiesA.rgs"
+  IDR_STRINGPROPERTIES            REGISTRY                "StringPropertiesA.rgs"
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_UPDWNTXTBOX DIALOGEX 0, 0, 60, 12
+STYLE DS_SETFONT | WS_CHILD
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 332, 230
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "About EditControls..."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,275,206,50,14
+    CONTROL         5,IDC_ABOUT,"Static",SS_BITMAP | SS_REALSIZEIMAGE,10,10,132,169,WS_EX_TRANSPARENT
+    LTEXT           "EditControls",IDC_NAME,118,10,207,11,0,WS_EX_TRANSPARENT
+    LTEXT           "<Version>",IDC_VERSION,118,21,207,26,0,WS_EX_TRANSPARENT
+    CONTROL         "Written by:",IDC_AUTHOR,"Static",WS_GROUP | 0x20,118,51,207,11
+    LTEXT           "<Authors>",IDC_AUTHORS,118,62,207,13,0,WS_EX_TRANSPARENT
+    LTEXT           "Thanks go to:",IDC_THANKS,118,82,207,11,0,WS_EX_TRANSPARENT
+    LTEXT           "<Thanks>",IDC_THANKSTO,118,93,207,33,0,WS_EX_TRANSPARENT
+    LTEXT           "Special Thanks go to:",IDC_SPECIALTHANKS,118,133,207,11,0,WS_EX_TRANSPARENT
+    CONTROL         "<SpecialThanks>",IDC_SPECIALTHANKSTO,"Static",WS_GROUP | 0x20,118,144,207,23
+    LTEXT           "Further information:",IDC_MORE,118,181,207,11,0,WS_EX_TRANSPARENT
+    LTEXT           "<Homepage>",IDC_HOMEPAGE,118,192,95,8,SS_NOTIFY,WS_EX_TRANSPARENT
+    LTEXT           "<Bugtracker>",IDC_BUGTRACKER,214,192,50,8,SS_NOTIFY,WS_EX_TRANSPARENT
+    CONTROL         6,IDC_PAYPAL,"Static",SS_BITMAP | SS_NOTIFY | SS_REALSIZEIMAGE,219,204,48,18,WS_EX_TRANSPARENT
+END
+
+IDD_COMMONPROPERTIES DIALOGEX 0, 0, 271, 136
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "&Disabled events:",IDC_STATIC,"Static",WS_GROUP | 0x20,7,7,53,8
+    CONTROL         "",IDC_DISABLEDEVENTSBOX,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,17,112,70
+    CONTROL         "&Current value:",IDC_CURRENTVALUESTATIC,"Static",WS_GROUP | 0x20,124,7,50,8
+    EDITTEXT        IDC_CURRENTVALUEEDIT,176,5,50,11,ES_RIGHT | ES_AUTOHSCROLL
+    CONTROL         "",IDC_CURRENTVALUEUPDOWN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,209,5,14,12
+    CONTROL         "&Invalid key combinations:",IDC_INVALIDKEYCOMBINATIONSSTATIC,
+                    "Static",WS_GROUP | 0x20,124,20,100,8
+    CONTROL         "",IDC_INVALIDKEYCOMBINATIONSBOX,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,124,30,112,57
+    CONTROL         "Default &modifier keys:",IDC_DEFMODKEYSSTATIC,"Static",WS_GROUP | 0x20,7,90,80,8
+    CONTROL         "",IDC_DEFMODKEYSBOX,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_ALIGNLEFT | LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,7,100,80,33
+END
+
+IDD_STRINGPROPERTIES DIALOGEX 0, 0, 271, 136
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "&Property:",IDC_STATIC,"Static",WS_GROUP | 0x20,7,7,34,8
+    COMBOBOX        IDC_PROPERTYCOMBO,42,5,77,52,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_PROPERTYEDIT,7,22,257,106,ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | WS_VSCROLL
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+#ifdef UNICODE
+    "1 TYPELIB ""EditCtlsU.tlb""\r\n"
+#else
+    "1 TYPELIB ""EditCtlsA.tlb""\r\n"
+#endif
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_LOADSETTINGS        "Load settings from a file..."
+    IDS_SAVESETTINGS        "Save the settings to a file..."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_TITLECOMMONPROPERTIES "Common"
+    IDS_DOCSTRINGCOMMONPROPERTIES "Common Properties"
+    IDS_TITLESTRINGPROPERTIES "String"
+    IDS_DOCSTRINGSTRINGPROPERTIES "String Properties"
+    IDS_PROJNAME            "EditCtls"
+END
+
+STRINGTABLE 
+BEGIN
+    IDPC_COLORS             "Colors"
+    IDPC_DRAGDROP           "Drag'n'Drop"
+END
+
+STRINGTABLE 
+BEGIN
+    IDP_APPEARANCE2D        "%i - 2D"
+    IDP_APPEARANCE3D        "%i - 3D"
+    IDP_APPEARANCE3DLIGHT   "%i - 3D Light"
+    IDP_APPEARANCEDEFAULT   "%i - Default"
+    IDP_AUTOSCROLLINGNONE   "%i - None"
+    IDP_AUTOSCROLLINGVERTICAL "%i - Vertical"
+    IDP_AUTOSCROLLINGHORIZONTAL "%i - Horizontal"
+    IDP_AUTOSCROLLINGBOTH   "%i - Both"
+    IDP_BASEDECIMAL         "%i - Decimal"
+    IDP_BASEHEXADECIMAL     "%i - Hexadecimal"
+    IDP_BORDERSTYLENONE     "%i - None"
+    IDP_BORDERSTYLEFIXEDSINGLE "%i - Fixed Single"
+    IDP_CHARACTERCONVERSIONNONE "%i - None"
+END
+
+STRINGTABLE 
+BEGIN
+    IDP_CHARACTERCONVERSIONLOWERCASE "%i - Lowercase"
+    IDP_CHARACTERCONVERSIONUPPERCASE "%i - Uppercase"
+    IDP_HALIGNMENTLEFT      "%i - Left"
+    IDP_HALIGNMENTCENTER    "%i - Center"
+    IDP_HALIGNMENTRIGHT     "%i - Right"
+    IDP_IMEMODEINHERIT      "%i - Inherit"
+    IDP_IMEMODENOCONTROL    "%i - No Control"
+    IDP_IMEMODEON           "%i - On"
+    IDP_IMEMODEOFF          "%i - Off"
+    IDP_IMEMODEDISABLE      "%i - Disable"
+    IDP_IMEMODEHIRAGANA     "%i - Hiragana DBC"
+    IDP_IMEMODEKATAKANA     "%i - Katakana DBC"
+    IDP_IMEMODEKATAKANAHALF "%i - Katakana SBC"
+    IDP_IMEMODEALPHAFULL    "%i - Alphanumeric DBC"
+    IDP_IMEMODEALPHA        "%i - Alphanumeric SBC"
+    IDP_IMEMODEHANGULFULL   "%i - Hangul DBC"
+END
+
+STRINGTABLE 
+BEGIN
+    IDP_IMEMODEHANGUL       "%i - Hangul SBC"
+    IDP_MOUSEPOINTERDEFAULT "%i - Default"
+    IDP_MOUSEPOINTERARROW   "%i - Arrow"
+    IDP_MOUSEPOINTERCROSS   "%i - Cross"
+    IDP_MOUSEPOINTERIBEAM   "%i - I-Cursor"
+    IDP_MOUSEPOINTERICON    "%i - Symbol"
+    IDP_MOUSEPOINTERSIZE    "%i - Size"
+    IDP_MOUSEPOINTERSIZENESW "%i - Size NE SW"
+    IDP_MOUSEPOINTERSIZENS  "%i - Size N S"
+    IDP_MOUSEPOINTERSIZENWSE "%i - Size NW SE"
+    IDP_MOUSEPOINTERSIZEEW  "%i - Size E W"
+    IDP_MOUSEPOINTERUPARROW "%i - Up-Arrow"
+    IDP_MOUSEPOINTERHOURGLASS "%i - Hourglass"
+    IDP_MOUSEPOINTERNODROP  "%i - Can't Drop"
+    IDP_MOUSEPOINTERARROWHOURGLASS "%i - Arrow + Hourglass"
+    IDP_MOUSEPOINTERARROWQUESTION "%i - Arrow + Questionmark"
+END
+
+STRINGTABLE 
+BEGIN
+    IDP_MOUSEPOINTERSIZEALL "%i - Size All"
+    IDP_MOUSEPOINTERHAND    "%i - Hand"
+    IDP_MOUSEPOINTERINSERTMEDIA "%i - Insert Media"
+    IDP_MOUSEPOINTERSCROLLALL "%i - Scroll All"
+    IDP_MOUSEPOINTERSCROLLN "%i - Scroll N"
+    IDP_MOUSEPOINTERSCROLLNE "%i - Scroll NE"
+    IDP_MOUSEPOINTERSCROLLE "%i - Scroll E"
+    IDP_MOUSEPOINTERSCROLLSE "%i - Scroll SE"
+    IDP_MOUSEPOINTERSCROLLS "%i - Scroll S"
+    IDP_MOUSEPOINTERSCROLLSW "%i - Scroll SW"
+    IDP_MOUSEPOINTERSCROLLW "%i - Scroll W"
+    IDP_MOUSEPOINTERSCROLLNW "%i - Scroll NW"
+    IDP_MOUSEPOINTERSCROLLNS "%i - Scroll N S"
+    IDP_MOUSEPOINTERSCROLLEW "%i - Scroll E W"
+    IDP_MOUSEPOINTERCUSTOM  "%i - Custom"
+    IDP_OLEDRAGIMAGESTYLECLASSIC "%i - Classic (Always)"
+    IDP_OLEDRAGIMAGESTYLEAERO "%i - Aero (If Available)"
+    IDP_ORIENTATIONHORIZONTAL "%i - Horizontal"
+END
+
+STRINGTABLE 
+BEGIN
+    IDP_ORIENTATIONVERTICAL "%i - Vertical"
+    IDP_RIGHTTOLEFTNONE     "%i - None"
+    IDP_RIGHTTOLEFTTEXT     "%i - Text"
+    IDP_RIGHTTOLEFTLAYOUT   "%i - Layout"
+    IDP_RIGHTTOLEFTTEXTLAYOUT "%i - Text + Layout"
+    IDP_SCROLLBARSNONE      "%i - None"
+    IDP_SCROLLBARSVERTICAL  "%i - Vertical"
+    IDP_SCROLLBARSHORIZONTAL "%i - Horizontal"
+    IDP_SCROLLBARSBOTH      "%i - Both"
+    IDP_UPDOWNLEFTOFTEXTBOX "%i - Left Of TextBox"
+    IDP_UPDOWNRIGHTOFTEXTBOX "%i - Right Of TextBox"
+END
+
+STRINGTABLE 
+BEGIN
+    IDES_FORMATMISMATCH     "Specified format doesn't match format of data"
+    IDES_INVALIDOBJUSE      "Invalid object use"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#ifdef _UNICODE
+  1 TYPELIB "EditCtlsU.tlb"
+#else
+  1 TYPELIB "EditCtlsA.tlb"
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

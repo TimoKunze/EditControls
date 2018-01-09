@@ -1,0 +1,9 @@
+; EditCtlsU.def: Declares the module parameters. (Unicode version)
+
+LIBRARY      "EditCtlsU.ocx"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE
