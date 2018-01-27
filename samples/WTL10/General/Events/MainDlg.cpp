@@ -156,14 +156,14 @@ LRESULT CMainDlg::OnWindowPosChanged(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM lP
 		LPWINDOWPOS pDetails = reinterpret_cast<LPWINDOWPOS>(lParam);
 
 		if((pDetails->flags & SWP_NOSIZE) == 0) {
-			WTL::CRect clientRectangle;
+			CRect clientRectangle;
 			GetClientRect(&clientRectangle);
 			int cx = static_cast<int>(0.4 * static_cast<double>(clientRectangle.Width()));
 			controls.logEdit.SetWindowPos(NULL, clientRectangle.Width() - cx, 0, cx, clientRectangle.Height() - 32, 0);
 			aboutButton.SetWindowPos(NULL, clientRectangle.Width() - cx, clientRectangle.Height() - 27, 0, 0, SWP_NOSIZE);
 
 			int halfHeight = (clientRectangle.Height() - 5) / 2;
-			WTL::CRect remainingRectangle;
+			CRect remainingRectangle;
 			controls.logEdit.GetWindowRect(&remainingRectangle);
 			ScreenToClient(&remainingRectangle);
 			remainingRectangle.right = remainingRectangle.left - 5;

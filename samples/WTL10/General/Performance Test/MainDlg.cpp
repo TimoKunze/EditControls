@@ -93,7 +93,7 @@ LRESULT CMainDlg::OnWindowPosChanged(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM lP
 		WINDOWPOS* pDetails = (WINDOWPOS*) lParam;
 
 		if((pDetails->flags & SWP_NOSIZE) == 0) {
-			WTL::CRect clientRectangle;
+			CRect clientRectangle;
 			GetClientRect(&clientRectangle);
 			controls.aboutButton.SetWindowPos(NULL, clientRectangle.Width() - 80, clientRectangle.Height() - 28, 0, 0, SWP_NOSIZE);
 			controls.descrStatic.SetWindowPos(NULL, 5, clientRectangle.Height() - 23, 0, 0, SWP_NOSIZE);
