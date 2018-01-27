@@ -705,7 +705,7 @@ void __stdcall CMainDlg::OLESetDataTxtbox0U(LPDISPATCH data, long formatID, long
 				LONG firstChar = 0;
 				LONG lastChar = 0;
 				controls.txtbox0U->GetDraggedTextRange(&firstChar, &lastChar);
-				ATL::CString tmp = COLE2T(controls.txtbox0U->GetText());
+				tmp = COLE2T(controls.txtbox0U->GetText());
 				pData->SetData(formatID, _variant_t(tmp.Mid(firstChar, lastChar - firstChar + 1)), -1, 1);
 				break;
 			}
@@ -1272,7 +1272,7 @@ void __stdcall CMainDlg::OLESetDataTxtbox1U(LPDISPATCH data, long formatID, long
 				LONG firstChar = 0;
 				LONG lastChar = 0;
 				controls.txtbox1U->GetDraggedTextRange(&firstChar, &lastChar);
-				ATL::CString tmp = COLE2T(controls.txtbox1U->GetText());
+				tmp = COLE2T(controls.txtbox1U->GetText());
 				pData->SetData(formatID, _variant_t(tmp.Mid(firstChar, lastChar - firstChar + 1)), -1, 1);
 				break;
 			}
@@ -2837,7 +2837,7 @@ void __stdcall CMainDlg::OLESetDataTxtbox0A(LPDISPATCH data, long formatID, long
 				LONG firstChar = 0;
 				LONG lastChar = 0;
 				controls.txtbox0A->GetDraggedTextRange(&firstChar, &lastChar);
-				ATL::CString tmp = COLE2T(controls.txtbox0A->GetText());
+				tmp = COLE2T(controls.txtbox0A->GetText());
 				pData->SetData(formatID, _variant_t(tmp.Mid(firstChar, lastChar - firstChar + 1)), -1, 1);
 				break;
 			}
@@ -3404,7 +3404,7 @@ void __stdcall CMainDlg::OLESetDataTxtbox1A(LPDISPATCH data, long formatID, long
 				LONG firstChar = 0;
 				LONG lastChar = 0;
 				controls.txtbox1A->GetDraggedTextRange(&firstChar, &lastChar);
-				ATL::CString tmp = COLE2T(controls.txtbox1A->GetText());
+				tmp = COLE2T(controls.txtbox1A->GetText());
 				pData->SetData(formatID, _variant_t(tmp.Mid(firstChar, lastChar - firstChar + 1)), -1, 1);
 				break;
 			}
