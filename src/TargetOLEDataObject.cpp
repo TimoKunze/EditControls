@@ -73,7 +73,7 @@ STDMETHODIMP TargetOLEDataObject::GetCanonicalFormat(LONG* pFormatID, LONG* pInd
 		*pFormatID = RegisterClipboardFormat(CF_RTF);
 	}
 
-	FORMATETC format = {static_cast<CLIPFORMAT>(*pFormatID), NULL, *pDataOrViewAspect, *pIndex, 0};
+	FORMATETC format = {static_cast<CLIPFORMAT>(*pFormatID), NULL, static_cast<DWORD>(*pDataOrViewAspect), *pIndex, 0};
 	switch(*pFormatID) {
 		case CF_BITMAP:
 		case CF_PALETTE:
@@ -120,7 +120,7 @@ STDMETHODIMP TargetOLEDataObject::GetData(LONG formatID, LONG index/* = -1*/, LO
 	}
 
 	if(properties.pDataObject) {
-		FORMATETC format = {static_cast<CLIPFORMAT>(formatID), NULL, dataOrViewAspect, index, 0};
+		FORMATETC format = {static_cast<CLIPFORMAT>(formatID), NULL, static_cast<DWORD>(dataOrViewAspect), index, 0};
 		switch(formatID) {
 			case CF_BITMAP:
 			case CF_PALETTE:
@@ -372,7 +372,7 @@ STDMETHODIMP TargetOLEDataObject::GetFormat(LONG formatID, LONG index/* = -1*/, 
 
 	*pFormatAvailable = VARIANT_FALSE;
 	if(properties.pDataObject) {
-		FORMATETC format = {static_cast<CLIPFORMAT>(formatID), NULL, dataOrViewAspect, index, 0};
+		FORMATETC format = {static_cast<CLIPFORMAT>(formatID), NULL, static_cast<DWORD>(dataOrViewAspect), index, 0};
 		switch(formatID) {
 			case CF_BITMAP:
 			case CF_PALETTE:
@@ -412,7 +412,7 @@ STDMETHODIMP TargetOLEDataObject::SetData(LONG formatID, VARIANT data/* = _varia
 	if(properties.pDataObject) {
 		// transform the data into a FORMATETC/STGMEDIUM pair
 		STGMEDIUM storageMedium = {0};
-		FORMATETC format = {static_cast<CLIPFORMAT>(formatID), NULL, dataOrViewAspect, index, 0};
+		FORMATETC format = {static_cast<CLIPFORMAT>(formatID), NULL, static_cast<DWORD>(dataOrViewAspect), index, 0};
 		switch(format.cfFormat) {
 			case CF_HDROP: {
 				// the global memory must contain a pointer to an array of DROPFILES structs

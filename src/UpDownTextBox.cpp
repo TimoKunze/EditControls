@@ -2303,13 +2303,13 @@ STDMETHODIMP UpDownTextBox::put_CancelIMECompositionOnSetFocus(VARIANT_BOOL newV
 		SetDirty(TRUE);
 
 		if(containedEdit.IsWindow()) {
-			DWORD flags = static_cast<DWORD>(containedEdit.SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
+			DWORD imeFlags = static_cast<DWORD>(containedEdit.SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
 			if(properties.cancelIMECompositionOnSetFocus) {
-				flags |= EIMES_CANCELCOMPSTRINFOCUS;
+				imeFlags |= EIMES_CANCELCOMPSTRINFOCUS;
 			} else {
-				flags &= ~EIMES_CANCELCOMPSTRINFOCUS;
+				imeFlags &= ~EIMES_CANCELCOMPSTRINFOCUS;
 			}
-			containedEdit.SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, flags);
+			containedEdit.SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, imeFlags);
 		}
 		FireOnChanged(DISPID_UPDWNTXTBOX_CANCELIMECOMPOSITIONONSETFOCUS);
 	}
@@ -2402,13 +2402,13 @@ STDMETHODIMP UpDownTextBox::put_CompleteIMECompositionOnKillFocus(VARIANT_BOOL n
 		SetDirty(TRUE);
 
 		if(containedEdit.IsWindow()) {
-			DWORD flags = static_cast<DWORD>(containedEdit.SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
+			DWORD imeFlags = static_cast<DWORD>(containedEdit.SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
 			if(properties.completeIMECompositionOnKillFocus) {
-				flags |= EIMES_COMPLETECOMPSTRKILLFOCUS;
+				imeFlags |= EIMES_COMPLETECOMPSTRKILLFOCUS;
 			} else {
-				flags &= ~EIMES_COMPLETECOMPSTRKILLFOCUS;
+				imeFlags &= ~EIMES_COMPLETECOMPSTRKILLFOCUS;
 			}
-			containedEdit.SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, flags);
+			containedEdit.SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, imeFlags);
 		}
 		FireOnChanged(DISPID_UPDWNTXTBOX_COMPLETEIMECOMPOSITIONONKILLFOCUS);
 	}
@@ -6537,18 +6537,18 @@ void UpDownTextBox::SendConfigurationMessages(void)
 			break;
 	}
 
-	DWORD flags = static_cast<DWORD>(containedEdit.SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
+	DWORD imeFlags = static_cast<DWORD>(containedEdit.SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
 	if(properties.cancelIMECompositionOnSetFocus) {
-		flags |= EIMES_CANCELCOMPSTRINFOCUS;
+		imeFlags |= EIMES_CANCELCOMPSTRINFOCUS;
 	} else {
-		flags &= ~EIMES_CANCELCOMPSTRINFOCUS;
+		imeFlags &= ~EIMES_CANCELCOMPSTRINFOCUS;
 	}
 	if(properties.completeIMECompositionOnKillFocus) {
-		flags |= EIMES_COMPLETECOMPSTRKILLFOCUS;
+		imeFlags |= EIMES_COMPLETECOMPSTRKILLFOCUS;
 	} else {
-		flags &= ~EIMES_COMPLETECOMPSTRKILLFOCUS;
+		imeFlags &= ~EIMES_COMPLETECOMPSTRKILLFOCUS;
 	}
-	containedEdit.SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, flags);
+	containedEdit.SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, imeFlags);
 	containedEdit.SendMessage(EM_SETLIMITTEXT, (properties.maxTextLength == -1 ? 0 : properties.maxTextLength), 0);
 	containedEdit.SendMessage(EM_SETREADONLY, properties.readOnlyTextBox, 0);
 
@@ -6596,18 +6596,18 @@ void UpDownTextBox::SendEditConfigurationMessages(void)
 			break;
 	}
 
-	DWORD flags = static_cast<DWORD>(containedEdit.SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
+	DWORD imeFlags = static_cast<DWORD>(containedEdit.SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
 	if(properties.cancelIMECompositionOnSetFocus) {
-		flags |= EIMES_CANCELCOMPSTRINFOCUS;
+		imeFlags |= EIMES_CANCELCOMPSTRINFOCUS;
 	} else {
-		flags &= ~EIMES_CANCELCOMPSTRINFOCUS;
+		imeFlags &= ~EIMES_CANCELCOMPSTRINFOCUS;
 	}
 	if(properties.completeIMECompositionOnKillFocus) {
-		flags |= EIMES_COMPLETECOMPSTRKILLFOCUS;
+		imeFlags |= EIMES_COMPLETECOMPSTRKILLFOCUS;
 	} else {
-		flags &= ~EIMES_COMPLETECOMPSTRKILLFOCUS;
+		imeFlags &= ~EIMES_COMPLETECOMPSTRKILLFOCUS;
 	}
-	containedEdit.SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, flags);
+	containedEdit.SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, imeFlags);
 	containedEdit.SendMessage(EM_SETLIMITTEXT, (properties.maxTextLength == -1 ? 0 : properties.maxTextLength), 0);
 	containedEdit.SendMessage(EM_SETREADONLY, properties.readOnlyTextBox, 0);
 

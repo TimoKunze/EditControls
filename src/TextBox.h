@@ -5867,12 +5867,12 @@ protected:
 		/// \brief <em>Resets all member variables to their defaults</em>
 		void Reset(void)
 		{
-			draggedTextFirstChar = -1;
-			draggedTextLastChar = -1;
-			if(hDragImageList && autoDestroyImgLst) {
-				ImageList_Destroy(hDragImageList);
+			this->draggedTextFirstChar = -1;
+			this->draggedTextLastChar = -1;
+			if(this->hDragImageList && autoDestroyImgLst) {
+				ImageList_Destroy(this->hDragImageList);
 			}
-			hDragImageList = NULL;
+			this->hDragImageList = NULL;
 			autoDestroyImgLst = FALSE;
 			dragImageIsHidden = 1;
 
@@ -5897,7 +5897,7 @@ protected:
 		/// \sa dragImageIsHidden, HideDragImage, IsDragImageVisible
 		void ShowDragImage(BOOL commonDragDropOnly)
 		{
-			if(hDragImageList) {
+			if(this->hDragImageList) {
 				--dragImageIsHidden;
 				if(dragImageIsHidden == 0) {
 					ImageList_DragShowNolock(TRUE);
@@ -5918,7 +5918,7 @@ protected:
 		/// \sa dragImageIsHidden, ShowDragImage, IsDragImageVisible
 		void HideDragImage(BOOL commonDragDropOnly)
 		{
-			if(hDragImageList) {
+			if(this->hDragImageList) {
 				++dragImageIsHidden;
 				if(dragImageIsHidden == 1) {
 					ImageList_DragShowNolock(FALSE);
@@ -5946,32 +5946,32 @@ protected:
 		/// \param[in] pTextBox The \c TextBox control whose \c CreateLegacyDragImage method shall be called.
 		/// \param[in] hWndEdit The edit control window, that the method will work on to calculate the position
 		///            of the drag image's hotspot.
-		/// \param[in] draggedTextFirstChar The zero-based index of the first character of the text to drag.
-		/// \param[in] draggedTextLastChar The zero-based index of the last character of the text to drag.
-		/// \param[in] hDragImageList The imagelist containing the drag image that shall be used to
+		/// \param[in] draggedTextFirstChr The zero-based index of the first character of the text to drag.
+		/// \param[in] draggedTextLastChr The zero-based index of the last character of the text to drag.
+		/// \param[in] hDragImgLst The imagelist containing the drag image that shall be used to
 		///            visualize the drag'n'drop operation. If -1, the method will create the drag image
 		///            itself; if \c NULL, no drag image will be displayed.
 		/// \param[in,out] pXHotSpot The x-coordinate (in pixels) of the drag image's hotspot relative to the
-		///                drag image's upper-left corner. If the \c hDragImageList parameter is set to
-		///                \c NULL, this parameter is ignored. If the \c hDragImageList parameter is set to
+		///                drag image's upper-left corner. If the \c hDragImgLst parameter is set to
+		///                \c NULL, this parameter is ignored. If the \c hDragImgLst parameter is set to
 		///                -1, this parameter is set to the hotspot calculated by the method.
 		/// \param[in,out] pYHotSpot The y-coordinate (in pixels) of the drag image's hotspot relative to the
-		///                drag image's upper-left corner. If the \c hDragImageList parameter is set to
-		///                \c NULL, this parameter is ignored. If the \c hDragImageList parameter is set to
+		///                drag image's upper-left corner. If the \c hDragImgLst parameter is set to
+		///                \c NULL, this parameter is ignored. If the \c hDragImgLst parameter is set to
 		///                -1, this parameter is set to the hotspot calculated by the method.
 		///
 		/// \return An \c HRESULT error code.
 		///
 		/// \sa EndDrag, TextBox::CreateLegacyDragImage
-		HRESULT BeginDrag(TextBox* pTextBox, HWND hWndEdit, LONG draggedTextFirstChar, LONG draggedTextLastChar, HIMAGELIST hDragImageList, int* pXHotSpot, int* pYHotSpot)
+		HRESULT BeginDrag(TextBox* pTextBox, HWND hWndEdit, LONG draggedTextFirstChr, LONG draggedTextLastChr, HIMAGELIST hDragImgLst, int* pXHotSpot, int* pYHotSpot)
 		{
 			ATLASSUME(pTextBox);
 
 			UINT b = FALSE;
-			if(hDragImageList == static_cast<HIMAGELIST>(LongToHandle(-1))) {
+			if(hDragImgLst == static_cast<HIMAGELIST>(LongToHandle(-1))) {
 				POINT upperLeftPoint = {0};
-				hDragImageList = pTextBox->CreateLegacyDragImage(draggedTextFirstChar, draggedTextLastChar, &upperLeftPoint, NULL);
-				if(!hDragImageList) {
+				hDragImgLst = pTextBox->CreateLegacyDragImage(draggedTextFirstChr, draggedTextLastChr, &upperLeftPoint, NULL);
+				if(!hDragImgLst) {
 					return E_FAIL;
 				}
 				b = TRUE;
@@ -5981,7 +5981,7 @@ protected:
 				::ScreenToClient(hWndEdit, &mousePosition);
 				if(CWindow(hWndEdit).GetExStyle() & WS_EX_LAYOUTRTL) {
 					SIZE dragImageSize = {0};
-					ImageList_GetIconSize(hDragImageList, reinterpret_cast<PINT>(&dragImageSize.cx), reinterpret_cast<PINT>(&dragImageSize.cy));
+					ImageList_GetIconSize(hDragImgLst, reinterpret_cast<PINT>(&dragImageSize.cx), reinterpret_cast<PINT>(&dragImageSize.cy));
 					*pXHotSpot = upperLeftPoint.x + dragImageSize.cx - mousePosition.x;
 				} else {
 					*pXHotSpot = mousePosition.x - upperLeftPoint.x;
@@ -5994,9 +5994,9 @@ protected:
 			}
 
 			this->autoDestroyImgLst = b;
-			this->hDragImageList = hDragImageList;
-			this->draggedTextFirstChar = draggedTextFirstChar;
-			this->draggedTextLastChar = draggedTextLastChar;
+			this->hDragImageList = hDragImgLst;
+			this->draggedTextFirstChar = draggedTextFirstChr;
+			this->draggedTextLastChar = draggedTextLastChr;
 
 			dragImageIsHidden = 1;
 			autoScrolling.Reset();
@@ -6010,10 +6010,10 @@ protected:
 		{
 			this->draggedTextFirstChar = -1;
 			this->draggedTextLastChar = -1;
-			if(autoDestroyImgLst && hDragImageList) {
-				ImageList_Destroy(hDragImageList);
+			if(autoDestroyImgLst && this->hDragImageList) {
+				ImageList_Destroy(this->hDragImageList);
 			}
-			hDragImageList = NULL;
+			this->hDragImageList = NULL;
 			dragImageIsHidden = 1;
 			autoScrolling.Reset();
 		}
@@ -6025,7 +6025,7 @@ protected:
 		/// \sa BeginDrag, EndDrag
 		BOOL IsDragging(void)
 		{
-			return (draggedTextFirstChar != -1 && draggedTextLastChar != -1);
+			return (this->draggedTextFirstChar != -1 && this->draggedTextLastChar != -1);
 		}
 
 		/// \brief <em>Performs any tasks that must be done if \c IDropTarget::DragEnter is called</em>

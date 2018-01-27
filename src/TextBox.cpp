@@ -1390,9 +1390,9 @@ BOOL TextBox::CreateLegacyOLEDragImage(int firstChar, int lastChar, LPSHDRAGIMAG
 			}
 			ATLASSUME(pImgLst);
 
-			DWORD flags = 0;
-			pImgLst->GetItemFlags(0, &flags);
-			if(flags & ILIF_ALPHA) {
+			DWORD imageFlags = 0;
+			pImgLst->GetItemFlags(0, &imageFlags);
+			if(imageFlags & ILIF_ALPHA) {
 				// the drag image makes use of the alpha channel
 				IMAGEINFO imageInfo = {0};
 				ImageList_GetImageInfo(hImageList, 0, &imageInfo);
@@ -2747,13 +2747,13 @@ STDMETHODIMP TextBox::put_CancelIMECompositionOnSetFocus(VARIANT_BOOL newValue)
 		SetDirty(TRUE);
 
 		if(IsWindow()) {
-			DWORD flags = static_cast<DWORD>(SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
+			DWORD imeFlags = static_cast<DWORD>(SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
 			if(properties.cancelIMECompositionOnSetFocus) {
-				flags |= EIMES_CANCELCOMPSTRINFOCUS;
+				imeFlags |= EIMES_CANCELCOMPSTRINFOCUS;
 			} else {
-				flags &= ~EIMES_CANCELCOMPSTRINFOCUS;
+				imeFlags &= ~EIMES_CANCELCOMPSTRINFOCUS;
 			}
-			SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, flags);
+			SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, imeFlags);
 		}
 		FireOnChanged(DISPID_TXTBOX_CANCELIMECOMPOSITIONONSETFOCUS);
 	}
@@ -2846,13 +2846,13 @@ STDMETHODIMP TextBox::put_CompleteIMECompositionOnKillFocus(VARIANT_BOOL newValu
 		SetDirty(TRUE);
 
 		if(IsWindow()) {
-			DWORD flags = static_cast<DWORD>(SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
+			DWORD imeFlags = static_cast<DWORD>(SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
 			if(properties.completeIMECompositionOnKillFocus) {
-				flags |= EIMES_COMPLETECOMPSTRKILLFOCUS;
+				imeFlags |= EIMES_COMPLETECOMPSTRKILLFOCUS;
 			} else {
-				flags &= ~EIMES_COMPLETECOMPSTRKILLFOCUS;
+				imeFlags &= ~EIMES_COMPLETECOMPSTRKILLFOCUS;
 			}
-			SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, flags);
+			SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, imeFlags);
 		}
 		FireOnChanged(DISPID_TXTBOX_COMPLETEIMECOMPOSITIONONKILLFOCUS);
 	}
@@ -8059,18 +8059,18 @@ DWORD TextBox::GetStyleBits(void)
 
 void TextBox::SendConfigurationMessages(void)
 {
-	DWORD flags = static_cast<DWORD>(SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
+	DWORD imeFlags = static_cast<DWORD>(SendMessage(EM_GETIMESTATUS, EMSIS_COMPOSITIONSTRING, 0));
 	if(properties.cancelIMECompositionOnSetFocus) {
-		flags |= EIMES_CANCELCOMPSTRINFOCUS;
+		imeFlags |= EIMES_CANCELCOMPSTRINFOCUS;
 	} else {
-		flags &= ~EIMES_CANCELCOMPSTRINFOCUS;
+		imeFlags &= ~EIMES_CANCELCOMPSTRINFOCUS;
 	}
 	if(properties.completeIMECompositionOnKillFocus) {
-		flags |= EIMES_COMPLETECOMPSTRKILLFOCUS;
+		imeFlags |= EIMES_COMPLETECOMPSTRKILLFOCUS;
 	} else {
-		flags &= ~EIMES_COMPLETECOMPSTRKILLFOCUS;
+		imeFlags &= ~EIMES_COMPLETECOMPSTRKILLFOCUS;
 	}
-	SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, flags);
+	SendMessage(EM_SETIMESTATUS, EMSIS_COMPOSITIONSTRING, imeFlags);
 	SendMessage(EM_FMTLINES, properties.insertSoftLineBreaks, 0);
 	SendMessage(EM_SETLIMITTEXT, (properties.maxTextLength == -1 ? 0 : properties.maxTextLength), 0);
 	SendMessage(EM_SETREADONLY, properties.readOnly, 0);
