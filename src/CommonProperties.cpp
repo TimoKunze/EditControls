@@ -47,7 +47,7 @@ STDMETHODIMP CommonProperties::Activate(HWND hWndParent, LPCRECT pRect, BOOL mod
 	controls.currentValueUpDown.Attach(GetDlgItem(IDC_CURRENTVALUEUPDOWN));
 
 	// setup the toolbar
-	WTL::CRect toolbarRect;
+	CRect toolbarRect;
 	GetClientRect(&toolbarRect);
 	toolbarRect.OffsetRect(0, 2);
 	toolbarRect.left += toolbarRect.right - 46;

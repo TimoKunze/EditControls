@@ -1,7 +1,7 @@
 // TextBox.cpp: Superclasses Edit.
 
 #include "stdafx.h"
-#include "CWindowEx.h"
+#include "CWindowEx2.h"
 #include "TextBox.h"
 #include "ClassFactory.h"
 
@@ -1221,7 +1221,7 @@ HIMAGELIST TextBox::CreateLegacyDragImage(int firstChar, int lastChar, LPPOINT p
 	maskMemoryDC.CreateCompatibleDC(hCompatibleDC);
 
 	// calculate the bounding rectangle of the text
-	WTL::CRect textBoundingRect;
+	CRect textBoundingRect;
 	LRESULT lr = SendMessage(EM_POSFROMCHAR, firstChar, 0);
 	if(lr != -1) {
 		textBoundingRect.left = LOWORD(lr);
@@ -1437,7 +1437,7 @@ BOOL TextBox::CreateLegacyOLEDragImage(int firstChar, int lastChar, LPSHDRAGIMAG
 			pDragImage->crColorKey = RGB(0xF4, 0x00, 0x00);
 			CBrush backroundBrush;
 			backroundBrush.CreateSolidBrush(pDragImage->crColorKey);
-			memoryDC.FillRect(WTL::CRect(0, 0, bitmapWidth, bitmapHeight), backroundBrush);
+			memoryDC.FillRect(CRect(0, 0, bitmapWidth, bitmapHeight), backroundBrush);
 			ImageList_Draw(hImageList, 0, memoryDC, 0, 0, ILD_NORMAL);
 
 			// clean up
@@ -2918,7 +2918,7 @@ STDMETHODIMP TextBox::put_DisabledBackColor(OLE_COLOR newValue)
 		}
 		if(!properties.enabled || properties.readOnly) {
 			if(IsWindow()) {
-				WTL::CRect windowRectangle;
+				CRect windowRectangle;
 				GetWindowRect(&windowRectangle);
 				WINDOWPOS details = {0};
 				details.hwnd = *this;
@@ -3665,7 +3665,7 @@ STDMETHODIMP TextBox::get_LastVisibleLine(LONG* pValue)
 			LONG lineHeight = 0;
 			get_LineHeight(&lineHeight);
 
-			WTL::CRect clientRectangle;
+			CRect clientRectangle;
 			GetClientRect(&clientRectangle);
 			*pValue = min(SendMessage(EM_GETFIRSTVISIBLELINE, 0, 0) + clientRectangle.Height() / lineHeight, SendMessage(EM_GETLINECOUNT, 0, 0) - 1);
 		}
@@ -3714,7 +3714,7 @@ STDMETHODIMP TextBox::get_LineHeight(LONG* pValue)
 		CDCHandle targetDC = GetDC();
 		HFONT hFont = reinterpret_cast<HFONT>(SendMessage(WM_GETFONT, 0, 0));
 		HFONT hPreviousFont = targetDC.SelectFont(hFont);
-		WTL::CRect rc;
+		CRect rc;
 		targetDC.DrawText(TEXT("A"), 1, &rc, DT_CALCRECT | DT_LEFT | DT_TOP | DT_EDITCONTROL | DT_SINGLELINE | DT_HIDEPREFIX);
 		targetDC.SelectFont(hPreviousFont);
 		ReleaseDC(targetDC);
@@ -4948,14 +4948,14 @@ STDMETHODIMP TextBox::AppendText(BSTR text, VARIANT_BOOL setCaretToEnd/* = VARIA
 	if(IsWindow()) {
 		BOOL invalidate = FALSE;
 		if(setCaretToEnd == VARIANT_FALSE) {
-			CWindowEx(*this).InternalSetRedraw(FALSE);
+			CWindowEx2(*this).InternalSetRedraw(FALSE);
 			int selectionStart = 0;
 			int selectionEnd = 0;
 			SendMessage(EM_GETSEL, reinterpret_cast<WPARAM>(&selectionStart), reinterpret_cast<LPARAM>(&selectionEnd));
 			SendMessage(EM_SETSEL, INT_MAX, INT_MAX);
 			SendMessage(EM_REPLACESEL, FALSE, reinterpret_cast<LPARAM>(static_cast<LPCTSTR>(COLE2CT(text))));
 			SendMessage(EM_SETSEL, selectionStart, selectionEnd);
-			CWindowEx(*this).InternalSetRedraw(TRUE);
+			CWindowEx2(*this).InternalSetRedraw(TRUE);
 		} else {
 			SendMessage(EM_SETSEL, INT_MAX, INT_MAX);
 			SendMessage(EM_REPLACESEL, FALSE, reinterpret_cast<LPARAM>(static_cast<LPCTSTR>(COLE2CT(text))));
@@ -5293,7 +5293,7 @@ STDMETHODIMP TextBox::IsTextTruncated(LONG lineIndex/* = 0*/, VARIANT_BOOL* pVal
 			pBuffer[copied] = TEXT('\0');
 
 			// calculate the width
-			WTL::CRect clientRectangle;
+			CRect clientRectangle;
 			GetClientRect(&clientRectangle);
 			DWORD margins = static_cast<DWORD>(SendMessage(EM_GETMARGINS, 0, 0));
 			clientRectangle.left += LOWORD(margins);
@@ -5301,7 +5301,7 @@ STDMETHODIMP TextBox::IsTextTruncated(LONG lineIndex/* = 0*/, VARIANT_BOOL* pVal
 
 			int firstCharacterInLine = static_cast<int>(SendMessage(EM_LINEINDEX, lineIndex, 0));
 			int lastCharacterInLine = firstCharacterInLine + copied;
-			WTL::CRect textRectangle;
+			CRect textRectangle;
 			textRectangle.left = GET_X_LPARAM(SendMessage(EM_POSFROMCHAR, firstCharacterInLine, 0));
 			textRectangle.right = GET_X_LPARAM(SendMessage(EM_POSFROMCHAR, lastCharacterInLine, 0));
 			if(textRectangle.right < textRectangle.left) {
@@ -5314,7 +5314,7 @@ STDMETHODIMP TextBox::IsTextTruncated(LONG lineIndex/* = 0*/, VARIANT_BOOL* pVal
 				HFONT hFont = reinterpret_cast<HFONT>(SendMessage(WM_GETFONT, 0, 0));
 				HFONT hPreviousFont = targetDC.SelectFont(hFont);
 
-				WTL::CRect rc = clientRectangle;
+				CRect rc = clientRectangle;
 				switch(GetStyle() & (ES_LEFT | ES_CENTER | ES_RIGHT)) {
 					case ES_CENTER:
 						targetDC.DrawText(&pBuffer[copied - 1], 1, &rc, DT_CALCRECT | DT_CENTER | DT_TOP | DT_EDITCONTROL | DT_SINGLELINE | DT_HIDEPREFIX);
@@ -5966,9 +5966,9 @@ LRESULT TextBox::OnMouseMove(UINT /*message*/, WPARAM wParam, LPARAM lParam, BOO
 			if(clickRectHeight < 4) {
 				clickRectHeight = 4;
 			}
-			WTL::CRect rc(dragDropStatus.candidate.position.x - clickRectWidth, dragDropStatus.candidate.position.y - clickRectHeight, dragDropStatus.candidate.position.x + clickRectWidth, dragDropStatus.candidate.position.y + clickRectHeight);
+			CRect rc(dragDropStatus.candidate.position.x - clickRectWidth, dragDropStatus.candidate.position.y - clickRectHeight, dragDropStatus.candidate.position.x + clickRectWidth, dragDropStatus.candidate.position.y + clickRectHeight);
 
-			if(!rc.PtInRect(WTL::CPoint(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam)))) {
+			if(!rc.PtInRect(CPoint(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam)))) {
 				SHORT button = 0;
 				SHORT shift = 0;
 				WPARAM2BUTTONANDSHIFT(-1, button, shift);
@@ -6114,7 +6114,7 @@ LRESULT TextBox::OnScroll(UINT message, WPARAM wParam, LPARAM lParam, BOOL& /*wa
 {
 	if(insertMark.characterIndex != -1) {
 		// remove the insertion mark - we would get drawing glitches otherwise
-		WTL::CRect oldInsertMarkRect;
+		CRect oldInsertMarkRect;
 		// calculate the current insertion mark's rectangle
 		LRESULT lr = SendMessage(EM_POSFROMCHAR, insertMark.characterIndex, 0);
 		if(lr == -1) {
@@ -6134,7 +6134,7 @@ LRESULT TextBox::OnScroll(UINT message, WPARAM wParam, LPARAM lParam, BOOL& /*wa
 				GetWindowText(pBuffer, bufferSize);
 
 				// calculate character width
-				WTL::CRect rc;
+				CRect rc;
 				targetDC.DrawText(&pBuffer[insertMark.characterIndex], 1, &rc, DT_CALCRECT | DT_LEFT | DT_TOP | DT_EDITCONTROL | DT_SINGLELINE | DT_HIDEPREFIX);
 				oldInsertMarkRect.left = LOWORD(lr) + rc.Width();
 
@@ -6195,7 +6195,7 @@ LRESULT TextBox::OnSetCursor(UINT /*message*/, WPARAM /*wParam*/, LPARAM /*lPara
 	BOOL setCursor = FALSE;
 
 	// Are we really over the control?
-	WTL::CRect clientArea;
+	CRect clientArea;
 	GetClientRect(&clientArea);
 	ClientToScreen(&clientArea);
 	DWORD position = GetMessagePos();
@@ -6423,7 +6423,7 @@ LRESULT TextBox::OnWindowPosChanged(UINT /*message*/, WPARAM /*wParam*/, LPARAM 
 {
 	LPWINDOWPOS pDetails = reinterpret_cast<LPWINDOWPOS>(lParam);
 
-	WTL::CRect windowRectangle = m_rcPos;
+	CRect windowRectangle = m_rcPos;
 	/* Ugly hack: We depend on this message being sent without SWP_NOMOVE at least once, but this requirement
 	              not always will be fulfilled. Fortunately pDetails seems to contain correct x and y values
 	              even if SWP_NOMOVE is set.
@@ -6682,8 +6682,8 @@ LRESULT TextBox::OnSetCueBanner(UINT message, WPARAM wParam, LPARAM lParam, BOOL
 
 LRESULT TextBox::OnSetInsertMark(UINT /*message*/, WPARAM wParam, LPARAM lParam, BOOL& /*wasHandled*/)
 {
-	WTL::CRect oldInsertMarkRect;
-	WTL::CRect newInsertMarkRect;
+	CRect oldInsertMarkRect;
+	CRect newInsertMarkRect;
 
 	if(insertMark.characterIndex != -1) {
 		// calculate the current insertion mark's rectangle
@@ -6705,7 +6705,7 @@ LRESULT TextBox::OnSetInsertMark(UINT /*message*/, WPARAM wParam, LPARAM lParam,
 				GetWindowText(pBuffer, bufferSize);
 
 				// calculate character width
-				WTL::CRect rc;
+				CRect rc;
 				targetDC.DrawText(&pBuffer[insertMark.characterIndex], 1, &rc, DT_CALCRECT | DT_LEFT | DT_TOP | DT_EDITCONTROL | DT_SINGLELINE | DT_HIDEPREFIX);
 				oldInsertMarkRect.left = LOWORD(lr) + rc.Width();
 
@@ -6750,7 +6750,7 @@ LRESULT TextBox::OnSetInsertMark(UINT /*message*/, WPARAM wParam, LPARAM lParam,
 				GetWindowText(pBuffer, bufferSize);
 
 				// calculate character width
-				WTL::CRect rc;
+				CRect rc;
 				targetDC.DrawText(&pBuffer[insertMark.characterIndex], 1, &rc, DT_CALCRECT | DT_LEFT | DT_TOP | DT_EDITCONTROL | DT_SINGLELINE | DT_HIDEPREFIX);
 				newInsertMarkRect.left = LOWORD(lr) + rc.Width();
 
@@ -6792,7 +6792,7 @@ LRESULT TextBox::OnSetInsertMarkColor(UINT /*message*/, WPARAM /*wParam*/, LPARA
 	insertMark.color = static_cast<COLORREF>(lParam);
 
 	// calculate insertion mark rectangle
-	WTL::CRect insertMarkRect;
+	CRect insertMarkRect;
 	if(insertMark.characterIndex != -1) {
 		// calculate the current insertion mark's rectangle
 		LRESULT lr = SendMessage(EM_POSFROMCHAR, insertMark.characterIndex, 0);
@@ -6813,7 +6813,7 @@ LRESULT TextBox::OnSetInsertMarkColor(UINT /*message*/, WPARAM /*wParam*/, LPARA
 				GetWindowText(pBuffer, bufferSize);
 
 				// calculate character width
-				WTL::CRect rc;
+				CRect rc;
 				targetDC.DrawText(&pBuffer[insertMark.characterIndex], 1, &rc, DT_CALCRECT | DT_LEFT | DT_TOP | DT_EDITCONTROL | DT_SINGLELINE | DT_HIDEPREFIX);
 				insertMarkRect.left = LOWORD(lr) + rc.Width();
 
@@ -7084,9 +7084,9 @@ inline HRESULT TextBox::Raise_ContextMenu(SHORT button, SHORT shift, OLE_XPOS_PI
 			// the event was caused by the keyboard
 			if(properties.processContextMenuKeys) {
 				// propose the middle of the control's client rectangle as the menu's position
-				WTL::CRect clientRectangle;
+				CRect clientRectangle;
 				GetClientRect(&clientRectangle);
-				WTL::CPoint centerPoint = clientRectangle.CenterPoint();
+				CPoint centerPoint = clientRectangle.CenterPoint();
 				x = centerPoint.x;
 				y = centerPoint.y;
 			} else {
@@ -7132,8 +7132,8 @@ inline HRESULT TextBox::Raise_DragMouseMove(SHORT button, SHORT shift, OLE_XPOS_
 	if(properties.dragScrollTimeBase != 0) {
 		/* Use a 16 pixels wide border around the client area as the zone for auto-scrolling.
 		   Are we within this zone? */
-		WTL::CPoint mousePosition(x, y);
-		WTL::CRect noScrollZone(0, 0, 0, 0);
+		CPoint mousePosition(x, y);
+		CRect noScrollZone(0, 0, 0, 0);
 		GetClientRect(&noScrollZone);
 		BOOL isInScrollZone = noScrollZone.PtInRect(mousePosition);
 		if(isInScrollZone) {
@@ -7461,8 +7461,8 @@ inline HRESULT TextBox::Raise_OLEDragEnter(IDataObject* pData, DWORD* pEffect, D
 	if(properties.dragScrollTimeBase != 0) {
 		/* Use a 16 pixels wide border around the client area as the zone for auto-scrolling.
 		   Are we within this zone? */
-		WTL::CPoint mousePos(mousePosition.x, mousePosition.y);
-		WTL::CRect noScrollZone(0, 0, 0, 0);
+		CPoint mousePos(mousePosition.x, mousePosition.y);
+		CRect noScrollZone(0, 0, 0, 0);
 		GetClientRect(&noScrollZone);
 		BOOL isInScrollZone = noScrollZone.PtInRect(mousePos);
 		if(isInScrollZone) {
@@ -7580,8 +7580,8 @@ inline HRESULT TextBox::Raise_OLEDragMouseMove(DWORD* pEffect, DWORD keyState, P
 	if(properties.dragScrollTimeBase != 0) {
 		/* Use a 16 pixels wide border around the client area as the zone for auto-scrolling.
 		   Are we within this zone? */
-		WTL::CPoint mousePos(mousePosition.x, mousePosition.y);
-		WTL::CRect noScrollZone(0, 0, 0, 0);
+		CPoint mousePos(mousePosition.x, mousePosition.y);
+		CRect noScrollZone(0, 0, 0, 0);
 		GetClientRect(&noScrollZone);
 		BOOL isInScrollZone = noScrollZone.PtInRect(mousePos);
 		if(isInScrollZone) {
@@ -8348,7 +8348,7 @@ BOOL TextBox::IsOverSelectedText(LPARAM pt)
 
 					if(lineIndexCursor == static_cast<int>(SendMessage(EM_GETLINECOUNT, 0, 0)) - 1) {
 						// check whether we're really in this line using the y coordinate
-						WTL::CRect rc;
+						CRect rc;
 						targetDC.DrawText(TEXT("A"), 1, &rc, DT_CALCRECT | DT_LEFT | DT_TOP | DT_EDITCONTROL | DT_SINGLELINE | DT_HIDEPREFIX);
 
 						int yNextLine = HIWORD(SendMessage(EM_POSFROMCHAR, charIndexCursor, 0)) + rc.Height();
@@ -8376,7 +8376,7 @@ BOOL TextBox::IsOverSelectedText(LPARAM pt)
 						int rightLastSelectedCharInLine = static_cast<short>(LOWORD(SendMessage(EM_POSFROMCHAR, lastSelectedCharInCursorLine, 0)));
 
 						// add the last selected character's width
-						WTL::CRect clientRectangle;
+						CRect clientRectangle;
 						GetClientRect(&clientRectangle);
 						switch(GetStyle() & (ES_LEFT | ES_CENTER | ES_RIGHT)) {
 							case ES_CENTER:
@@ -8410,7 +8410,7 @@ void TextBox::DrawInsertionMark(CDCHandle targetDC)
 		pen.CreatePen(PS_SOLID, 2, insertMark.color);
 		HPEN hPreviousPen = targetDC.SelectPen(pen);
 
-		WTL::CRect insertMarkRect;
+		CRect insertMarkRect;
 		LRESULT lr = SendMessage(EM_POSFROMCHAR, insertMark.characterIndex, 0);
 		if(lr == -1) {
 			if(insertMark.characterIndex == 0 && GetWindowTextLength() == 0) {
@@ -8428,7 +8428,7 @@ void TextBox::DrawInsertionMark(CDCHandle targetDC)
 				GetWindowText(pBuffer, bufferSize);
 
 				// calculate character width
-				WTL::CRect rc;
+				CRect rc;
 				targetDC.DrawText(&pBuffer[insertMark.characterIndex], 1, &rc, DT_CALCRECT | DT_LEFT | DT_TOP | DT_EDITCONTROL | DT_SINGLELINE | DT_HIDEPREFIX);
 				insertMarkRect.left = LOWORD(lr) + rc.Width();
 

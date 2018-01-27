@@ -1980,7 +1980,7 @@ STDMETHODIMP UpDownTextBox::put_Appearance(AppearanceConstants newValue)
 			}
 
 			containedUpDown.DestroyWindow();
-			WTL::CRect clientRectangle;
+			CRect clientRectangle;
 			GetClientRect(&clientRectangle);
 			containedEdit.MoveWindow(clientRectangle.left, clientRectangle.top, clientRectangle.Width(), clientRectangle.Height());
 			HWND hWndUD = CreateWindowEx(GetUpDownExStyleBits(), UPDOWN_CLASS, NULL, GetUpDownStyleBits(), clientRectangle.right, clientRectangle.top, clientRectangle.Width(), clientRectangle.Height(), *this, NULL, ModuleHelper::GetModuleInstance(), NULL);
@@ -2256,7 +2256,7 @@ STDMETHODIMP UpDownTextBox::put_BorderStyle(BorderStyleConstants newValue)
 			}
 
 			containedUpDown.DestroyWindow();
-			WTL::CRect clientRectangle;
+			CRect clientRectangle;
 			GetClientRect(&clientRectangle);
 			containedEdit.MoveWindow(clientRectangle.left, clientRectangle.top, clientRectangle.Width(), clientRectangle.Height());
 			HWND hWndUD = CreateWindowEx(GetUpDownExStyleBits(), UPDOWN_CLASS, NULL, GetUpDownStyleBits(), clientRectangle.right, clientRectangle.top, clientRectangle.Width(), clientRectangle.Height(), *this, NULL, ModuleHelper::GetModuleInstance(), NULL);
@@ -2542,7 +2542,7 @@ STDMETHODIMP UpDownTextBox::put_DisabledBackColor(OLE_COLOR newValue)
 		}
 		if(!properties.enabled || properties.readOnlyTextBox) {
 			if(IsWindow()) {
-				WTL::CRect windowRectangle;
+				CRect windowRectangle;
 				containedEdit.GetWindowRect(&windowRectangle);
 				WINDOWPOS details = {0};
 				details.hwnd = containedEdit;
@@ -2881,7 +2881,7 @@ STDMETHODIMP UpDownTextBox::get_FormattingRectangleHeight(OLE_YSIZE_PIXELS* pVal
 	}
 
 	if(containedEdit.IsWindow()) {
-		WTL::CRect formattingRectangle;
+		CRect formattingRectangle;
 		containedEdit.SendMessage(EM_GETRECT, 0, reinterpret_cast<LPARAM>(&formattingRectangle));
 		*pValue = formattingRectangle.Height();
 	}
@@ -2896,7 +2896,7 @@ STDMETHODIMP UpDownTextBox::get_FormattingRectangleLeft(OLE_XPOS_PIXELS* pValue)
 	}
 
 	if(containedEdit.IsWindow()) {
-		WTL::CRect formattingRectangle;
+		CRect formattingRectangle;
 		containedEdit.SendMessage(EM_GETRECT, 0, reinterpret_cast<LPARAM>(&formattingRectangle));
 		*pValue = formattingRectangle.left;
 	}
@@ -2911,7 +2911,7 @@ STDMETHODIMP UpDownTextBox::get_FormattingRectangleTop(OLE_YPOS_PIXELS* pValue)
 	}
 
 	if(containedEdit.IsWindow()) {
-		WTL::CRect formattingRectangle;
+		CRect formattingRectangle;
 		containedEdit.SendMessage(EM_GETRECT, 0, reinterpret_cast<LPARAM>(&formattingRectangle));
 		*pValue = formattingRectangle.top;
 	}
@@ -2926,7 +2926,7 @@ STDMETHODIMP UpDownTextBox::get_FormattingRectangleWidth(OLE_XSIZE_PIXELS* pValu
 	}
 
 	if(containedEdit.IsWindow()) {
-		WTL::CRect formattingRectangle;
+		CRect formattingRectangle;
 		containedEdit.SendMessage(EM_GETRECT, 0, reinterpret_cast<LPARAM>(&formattingRectangle));
 		*pValue = formattingRectangle.Width();
 	}
@@ -3667,7 +3667,7 @@ STDMETHODIMP UpDownTextBox::put_RightToLeft(RightToLeftConstants newValue)
 					break;
 			}
 			// size the edit control to 100% of the container
-			WTL::CRect clientRectangle;
+			CRect clientRectangle;
 			GetClientRect(&clientRectangle);
 			containedEdit.MoveWindow(clientRectangle.left, clientRectangle.top, clientRectangle.Width(), clientRectangle.Height());
 			// now reset the buddy, so that the up down control places itself into the edit control
@@ -4001,7 +4001,7 @@ STDMETHODIMP UpDownTextBox::HitTest(OLE_XPOS_PIXELS x, OLE_YPOS_PIXELS y, HitTes
 		POINT pt = {x, y};
 		*pHitTestDetails = htNotOverControl;
 
-		WTL::CRect rc;
+		CRect rc;
 		GetWindowRect(&rc);
 		ScreenToClient(&rc);
 		if(rc.PtInRect(pt)) {
@@ -4038,7 +4038,7 @@ STDMETHODIMP UpDownTextBox::IsTextTruncated(VARIANT_BOOL* pValue)
 			containedEdit.GetWindowText(pBuffer, bufferSize + 1);
 
 			// calculate the width
-			WTL::CRect clientRectangle;
+			CRect clientRectangle;
 			containedEdit.GetClientRect(&clientRectangle);
 			DWORD margins = static_cast<DWORD>(containedEdit.SendMessage(EM_GETMARGINS, 0, 0));
 			clientRectangle.left += LOWORD(margins);
@@ -4046,7 +4046,7 @@ STDMETHODIMP UpDownTextBox::IsTextTruncated(VARIANT_BOOL* pValue)
 
 			int firstCharacter = 0;
 			int lastCharacter = firstCharacter + bufferSize - 1;
-			WTL::CRect textRectangle;
+			CRect textRectangle;
 			textRectangle.left = GET_X_LPARAM(containedEdit.SendMessage(EM_POSFROMCHAR, firstCharacter, 0));
 			textRectangle.right = GET_X_LPARAM(containedEdit.SendMessage(EM_POSFROMCHAR, lastCharacter, 0));
 
@@ -4055,7 +4055,7 @@ STDMETHODIMP UpDownTextBox::IsTextTruncated(VARIANT_BOOL* pValue)
 			HFONT hFont = reinterpret_cast<HFONT>(containedEdit.SendMessage(WM_GETFONT, 0, 0));
 			HFONT hPreviousFont = targetDC.SelectFont(hFont);
 
-			WTL::CRect rc = clientRectangle;
+			CRect rc = clientRectangle;
 			switch(containedEdit.GetStyle() & (ES_LEFT | ES_CENTER | ES_RIGHT)) {
 				case ES_CENTER:
 					targetDC.DrawText(&pBuffer[bufferSize - 1], 1, &rc, DT_CALCRECT | DT_CENTER | DT_TOP | DT_EDITCONTROL | DT_SINGLELINE | DT_HIDEPREFIX);
@@ -4314,7 +4314,7 @@ LRESULT UpDownTextBox::OnInitDialog(UINT /*message*/, WPARAM /*wParam*/, LPARAM 
 		ModifyStyleEx(WS_EX_LAYOUTRTL, 0);
 	}
 
-	WTL::CRect clientRectangle;
+	CRect clientRectangle;
 	GetClientRect(&clientRectangle);
 	HWND hWndEdit = CreateWindowEx(GetEditExStyleBits(), WC_EDIT, NULL, GetEditStyleBits(), clientRectangle.left, clientRectangle.top, clientRectangle.Width(), clientRectangle.Height(), *this, NULL, ModuleHelper::GetModuleInstance(), NULL);
 	containedEdit.SubclassWindow(hWndEdit);
@@ -4361,7 +4361,7 @@ LRESULT UpDownTextBox::OnSetCursor(UINT /*message*/, WPARAM /*wParam*/, LPARAM /
 	BOOL setCursor = FALSE;
 
 	// Are we really over the control?
-	WTL::CRect clientArea;
+	CRect clientArea;
 	GetClientRect(&clientArea);
 	ClientToScreen(&clientArea);
 	DWORD position = GetMessagePos();
@@ -4591,7 +4591,7 @@ LRESULT UpDownTextBox::OnWindowPosChanged(UINT /*message*/, WPARAM /*wParam*/, L
 {
 	LPWINDOWPOS pDetails = reinterpret_cast<LPWINDOWPOS>(lParam);
 
-	WTL::CRect windowRectangle = m_rcPos;
+	CRect windowRectangle = m_rcPos;
 	/* Ugly hack: We depend on this message being sent without SWP_NOMOVE at least once, but this requirement
 	              not always will be fulfilled. Fortunately pDetails seems to contain correct x and y values
 	              even if SWP_NOMOVE is set.
@@ -4604,7 +4604,7 @@ LRESULT UpDownTextBox::OnWindowPosChanged(UINT /*message*/, WPARAM /*wParam*/, L
 		windowRectangle.bottom = windowRectangle.top + pDetails->cy;
 
 		// size the edit control to 100% of the container
-		WTL::CRect clientRectangle;
+		CRect clientRectangle;
 		GetClientRect(&clientRectangle);
 		containedEdit.MoveWindow(clientRectangle.left, clientRectangle.top, clientRectangle.Width(), clientRectangle.Height());
 		// now reset the buddy, so that the up down control places itself into the edit control
@@ -5597,9 +5597,9 @@ inline HRESULT UpDownTextBox::Raise_ContextMenu(SHORT button, SHORT shift, OLE_X
 			// the event was caused by the keyboard
 			if(properties.processContextMenuKeys) {
 				// propose the middle of the control's client rectangle as the menu's position
-				WTL::CRect clientRectangle;
+				CRect clientRectangle;
 				GetClientRect(&clientRectangle);
-				WTL::CPoint centerPoint = clientRectangle.CenterPoint();
+				CPoint centerPoint = clientRectangle.CenterPoint();
 				x = centerPoint.x;
 				y = centerPoint.y;
 			} else {
@@ -6480,7 +6480,7 @@ void UpDownTextBox::RecreateEditWindow(void)
 
 		containedEdit.DestroyWindow();
 
-		WTL::CRect clientRectangle;
+		CRect clientRectangle;
 		GetClientRect(&clientRectangle);
 		HWND hWndEdit = CreateWindowEx(GetEditExStyleBits(), WC_EDIT, NULL, GetEditStyleBits(), clientRectangle.left, clientRectangle.top, clientRectangle.Width(), clientRectangle.Height(), *this, NULL, ModuleHelper::GetModuleInstance(), NULL);
 		containedEdit.SubclassWindow(hWndEdit);
@@ -6508,7 +6508,7 @@ void UpDownTextBox::RecreateUpDownWindow(void)
 
 		containedUpDown.DestroyWindow();
 
-		WTL::CRect clientRectangle;
+		CRect clientRectangle;
 		GetClientRect(&clientRectangle);
 		HWND hWndUD = CreateWindowEx(GetUpDownExStyleBits(), UPDOWN_CLASS, NULL, GetUpDownStyleBits(), clientRectangle.right, clientRectangle.top, clientRectangle.Width(), clientRectangle.Height(), *this, NULL, ModuleHelper::GetModuleInstance(), NULL);
 		containedUpDown.SubclassWindow(hWndUD);

@@ -28,7 +28,7 @@ STDMETHODIMP StringProperties::Activate(HWND hWndParent, LPCRECT pRect, BOOL mod
 	controls.propertyEdit.Attach(GetDlgItem(IDC_PROPERTYEDIT));
 
 	// setup the toolbar
-	WTL::CRect toolbarRect;
+	CRect toolbarRect;
 	GetClientRect(&toolbarRect);
 	toolbarRect.OffsetRect(0, 2);
 	toolbarRect.left += toolbarRect.right - 46;

@@ -1,9 +1,9 @@
 //////////////////////////////////////////////////////////////////////
-/// \class CWindowEx
+/// \class CWindowEx2
 /// \author Timo "TimoSoft" Kunze
-/// \brief <em>An extension to \c ATL::CWindow</em>
+/// \brief <em>An extension to \c WTL::CWindowEx</em>
 ///
-/// This class extends \c ATL::CWindow by a \c IsMouseWithin and a \c InternalSetRedraw method.
+/// This class extends \c WTL::CWindowEx by a \c IsMouseWithin and a \c InternalSetRedraw method.
 //////////////////////////////////////////////////////////////////////
 
 
@@ -11,12 +11,12 @@
 
 #include "stdafx.h"
 
-class CWindowEx :
-    public CWindow
+class CWindowEx2 :
+    public CWindowEx
 {
 public:
-	CWindowEx(HWND hWnd = NULL) :
-	    CWindow(hWnd)
+	CWindowEx2(HWND hWnd = NULL) :
+	    CWindowEx(hWnd)
 	{
 		//
 	}
@@ -35,4 +35,4 @@ public:
 	///
 	/// \return \c TRUE if the cursor lies within the window rectangle; otherwise \c FALSE.
 	BOOL IsMouseWithin(void);
-};     // CWindowEx
+};     // CWindowEx2

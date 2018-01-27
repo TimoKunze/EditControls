@@ -5267,7 +5267,7 @@ protected:
 		///     get_FormattingRectangleLeft, put_FormattingRectangleLeft,
 		///     get_FormattingRectangleTop, put_FormattingRectangleTop,
 		///     get_FormattingRectangleWidth, put_FormattingRectangleWidth
-		WTL::CRect formattingRectangle;
+		CRect formattingRectangle;
 		/// \brief <em>Holds the \c HAlignment property's setting</em>
 		///
 		/// \sa get_HAlignment, put_HAlignment

@@ -36,6 +36,8 @@
 /// or lower.
 #define NTDDI_VERSION NTDDI_WIN10
 
+#include <winsdkver.h>
+
 /// \brief <em>Tells the compiler we're using apartment threading</em>
 #define _ATL_APARTMENT_THREADED
 

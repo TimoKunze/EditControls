@@ -1,15 +1,15 @@
-// CWindowEx.cpp: an extension to ATL::CWindow
+// CWindowEx2.cpp: an extension to WTL::CWindowEx
 
 #include "stdafx.h"
-#include "CWindowEx.h"
+#include "CWindowEx2.h"
 
 
-void CWindowEx::InternalSetRedraw(BOOL redraw/* = TRUE*/)
+void CWindowEx2::InternalSetRedraw(BOOL redraw/* = TRUE*/)
 {
 	SendMessage(WM_SETREDRAW, redraw, 71216);
 }
 
-BOOL CWindowEx::IsMouseWithin(void)
+BOOL CWindowEx2::IsMouseWithin(void)
 {
 	RECT windowRectangle;
 	GetClientRect(&windowRectangle);

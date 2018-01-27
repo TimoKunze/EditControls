@@ -1682,7 +1682,7 @@ STDMETHODIMP IPAddressBox::put_DisabledBackColor(OLE_COLOR newValue)
 		}
 		if(!properties.enabled) {
 			if(IsWindow()) {
-				WTL::CRect windowRectangle;
+				CRect windowRectangle;
 				WINDOWPOS details = {0};
 				details.flags = SWP_DRAWFRAME | SWP_FRAMECHANGED | SWP_NOCOPYBITS | SWP_NOMOVE | SWP_NOOWNERZORDER | SWP_NOZORDER;
 				for(int i = 0; i < 4; i++) {
@@ -2789,7 +2789,7 @@ LRESULT IPAddressBox::OnSetCursor(UINT /*message*/, WPARAM /*wParam*/, LPARAM /*
 	BOOL setCursor = FALSE;
 
 	// Are we really over the control?
-	WTL::CRect clientArea;
+	CRect clientArea;
 	GetClientRect(&clientArea);
 	ClientToScreen(&clientArea);
 	DWORD position = GetMessagePos();
@@ -3026,7 +3026,7 @@ LRESULT IPAddressBox::OnWindowPosChanged(UINT /*message*/, WPARAM /*wParam*/, LP
 {
 	LPWINDOWPOS pDetails = reinterpret_cast<LPWINDOWPOS>(lParam);
 
-	WTL::CRect windowRectangle = m_rcPos;
+	CRect windowRectangle = m_rcPos;
 	/* Ugly hack: We depend on this message being sent without SWP_NOMOVE at least once, but this requirement
 	              not always will be fulfilled. Fortunately pDetails seems to contain correct x and y values
 	              even if SWP_NOMOVE is set.
@@ -3540,9 +3540,9 @@ inline HRESULT IPAddressBox::Raise_ContextMenu(LONG editBoxIndex, SHORT button, 
 			// the event was caused by the keyboard
 			if(properties.processContextMenuKeys) {
 				// propose the middle of the control's client rectangle as the menu's position
-				WTL::CRect clientRectangle;
+				CRect clientRectangle;
 				GetClientRect(&clientRectangle);
-				WTL::CPoint centerPoint = clientRectangle.CenterPoint();
+				CPoint centerPoint = clientRectangle.CenterPoint();
 				x = centerPoint.x;
 				y = centerPoint.y;
 			} else {

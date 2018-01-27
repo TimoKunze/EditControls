@@ -502,7 +502,7 @@
   <ItemGroup>
     <ClCompile Include="AboutDlg.cpp" />
     <ClCompile Include="CommonProperties.cpp" />
-    <ClCompile Include="CWindowEx.cpp" />
+    <ClCompile Include="CWindowEx2.cpp" />
     <ClCompile Include="EditCtls.cpp" />
     <ClCompile Include="EnumOLEVERB.cpp" />
     <ClCompile Include="helpers.cpp" />
@@ -613,7 +613,7 @@
     <ClInclude Include="ClassFactory.h" />
     <ClInclude Include="CommonProperties.h" />
     <ClInclude Include="CompilerFlags.h" />
-    <ClInclude Include="CWindowEx.h" />
+    <ClInclude Include="CWindowEx2.h" />
     <ClInclude Include="DispIDs.h" />
     <ClInclude Include="EnumOLEVERB.h" />
     <ClInclude Include="helpers.h" />

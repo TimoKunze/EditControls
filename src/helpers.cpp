@@ -1016,7 +1016,7 @@ HIMAGELIST SetupStateImageList(HIMAGELIST hStateImageList)
 
 					HBITMAP hPreviousBitmap = memoryDC.SelectBitmap(bitmap);
 
-					WTL::CRect rc(0, 0, iconSize.cx, iconSize.cy);
+					CRect rc(0, 0, iconSize.cx, iconSize.cy);
 					SIZE partSize;
 					themingEngine.GetThemePartSize(memoryDC, BP_CHECKBOX, CBS_MIXEDNORMAL, NULL, TS_TRUE, &partSize);
 					rc.OffsetRect((iconSize.cx - partSize.cx) / 2, (iconSize.cy - partSize.cy) / 2);

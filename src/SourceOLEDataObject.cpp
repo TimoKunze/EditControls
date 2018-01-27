@@ -354,11 +354,11 @@ STDMETHODIMP SourceOLEDataObject::SetData(FORMATETC* pFormat, STGMEDIUM* pData, 
 
 							// calculate size and position
 							DWORD textDrawStyle = DT_SINGLELINE;
-							WTL::CRect textRectangle;
+							CRect textRectangle;
 							themingEngine.GetThemeTextExtent(memoryDC, DD_TEXTBG, 1, pLabelText, -1, textDrawStyle | DT_CALCRECT, NULL, &textRectangle);
 							MARGINS margins = {0};
 							themingEngine.GetThemeMargins(memoryDC, DD_TEXTBG, 1, TMT_CONTENTMARGINS, &textRectangle, &margins);
-							WTL::CRect labelRectangle = textRectangle;
+							CRect labelRectangle = textRectangle;
 							labelRectangle.left -= margins.cxLeftWidth;
 							labelRectangle.right += margins.cxRightWidth;
 							labelRectangle.top -= margins.cyTopHeight;
