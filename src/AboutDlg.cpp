@@ -42,7 +42,7 @@ LRESULT AboutDlg::OnInitDialog(UINT /*message*/, WPARAM /*wParam*/, LPARAM /*lPa
 {
 	// attach to the controls
 	controls.author = GetDlgItem(IDC_AUTHOR);
-	controls.bugtracker.SubclassWindow(GetDlgItem(IDC_BUGTRACKER));
+	controls.gitHubRepository.SubclassWindow(GetDlgItem(IDC_GITHUB));
 	controls.homepage.SubclassWindow(GetDlgItem(IDC_HOMEPAGE));
 	controls.more = GetDlgItem(IDC_MORE);
 	controls.name = GetDlgItem(IDC_NAME);
@@ -71,9 +71,9 @@ LRESULT AboutDlg::OnInitDialog(UINT /*message*/, WPARAM /*wParam*/, LPARAM /*lPa
 		str = TEXT("Browse to ") + str + TEXT("...");
 		controls.homepage.SetToolTipText((LPCTSTR) str);
 
-		controls.bugtracker.SetHyperLink(TEXT("https://bugtracker.timosoft-software.de/"));
-		controls.bugtracker.SetLabel(TEXT("Report a bug"));
-		controls.bugtracker.SetToolTipText(TEXT("Open up the bugtracker to report a bug or feature request..."));
+		controls.gitHubRepository.SetHyperLink(TEXT("https://github.com/TimoKunze/EditControls"));
+		controls.gitHubRepository.SetLabel(TEXT("Fork me on GitHub"));
+		controls.gitHubRepository.SetToolTipText(TEXT("Browse the GitHub repository..."));
 
 		controls.paypal.SetHyperLink(properties.pOwner->GetPaypalLink());
 		controls.paypal.SetToolTipText(TEXT("Make a donation to the author of this software."));

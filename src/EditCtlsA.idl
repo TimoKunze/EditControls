@@ -21,18 +21,18 @@
 /// \section reqs_sec Requirements
 ///
 /// %EditControls ANSI runs on the following operating systems:
-/// - Windows XP (SP3 or later) - <strong>limited support</strong>
-/// - Windows Server 2003 (SP2 or later) - <strong>limited support</strong>
-/// - Windows Vista (SP2 or later) - <strong>limited support</strong>
-/// - Windows Server 2008 (SP2 or later) - <strong>limited support</strong>
-/// - Windows 7 (SP1 or later) - <strong>limited support</strong>
-/// - Windows Server 2008 R2 (SP1 or later) - <strong>limited support</strong>
-/// - Windows 8 - <strong>limited support</strong>
-/// - Windows Server 2012 - <strong>limited support</strong>
-/// - Windows 8.1 - <strong>limited support</strong>
-/// - Windows Server 2012 R2 - <strong>limited support</strong>
-/// - Windows 10 - <strong>limited support</strong>
-/// - Windows Server 2016 - <strong>limited support</strong>
+/// - Windows XP (SP3 or later)
+/// - Windows Server 2003 (SP2 or later)
+/// - Windows Vista (SP2 or later)
+/// - Windows Server 2008 (SP2 or later)
+/// - Windows 7 (SP1 or later)
+/// - Windows Server 2008 R2 (SP1 or later)
+/// - Windows 8
+/// - Windows Server 2012
+/// - Windows 8.1
+/// - Windows Server 2012 R2
+/// - Windows 10
+/// - Windows Server 2016
 ///
 /// Some features have additional requirements which are mentioned in the affected feature's
 /// documentation.\n
@@ -42,10 +42,11 @@
 ///
 /// \section support_sec Support
 ///
-/// Although there's no entitlement to support, you've good chances to get help if you either post
-/// to the <a href="https://www.timosoft-software.de/forum/viewforum.php?f=31">forums</a> or
-/// <a href="mailto:Timo@TimoSoft-Software.de">send me a mail</a>.\n
-/// Bugs and feature requests should be entered into the <a href="https://bugtracker.timosoft-software.de">bug tracking system</a>.
+/// There's no entitlement to support. Period. However, you have good chances to get help if you post your
+/// questions on <a href="https://github.com/TimoKunze/EditControls">GitHub</a> or in the
+/// <a href="https://www.timosoft-software.de/forum/viewforum.php?f=31">forums</a>.\n
+/// Also the project is open source, so feel free to have a look at the source code. You may modify it, but
+/// please consider sharing your changes with the rest of the world.
 ///
 /// \section lic_sec License
 ///

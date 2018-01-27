@@ -44,10 +44,11 @@
 ///
 /// \section support_sec Support
 ///
-/// Although there's no entitlement to support, you've good chances to get help if you either post
-/// to the <a href="https://www.timosoft-software.de/forum/viewforum.php?f=31">forums</a> or
-/// <a href="mailto:Timo@TimoSoft-Software.de">send me a mail</a>.\n
-/// Bugs and feature requests should be entered into the <a href="https://bugtracker.timosoft-software.de">bug tracking system</a>.
+/// There's no entitlement to support. Period. However, you have good chances to get help if you post your
+/// questions on <a href="https://github.com/TimoKunze/EditControls">GitHub</a> or in the
+/// <a href="https://www.timosoft-software.de/forum/viewforum.php?f=31">forums</a>.\n
+/// Also the project is open source, so feel free to have a look at the source code. You may modify it, but
+/// please consider sharing your changes with the rest of the world.
 ///
 /// \section lic_sec License
 ///

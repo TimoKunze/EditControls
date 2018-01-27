@@ -94,8 +94,8 @@ protected:
 		CStatic specialThanks;
 		/// \brief <em>Wraps the link label displaying the URL of our website</em>
 		HyperLinkEx homepage;
-		/// \brief <em>Wraps the link label displaying the URL of our bugtracker</em>
-		HyperLinkEx bugtracker;
+		/// \brief <em>Wraps the link label displaying the URL of the GitHub repository</em>
+		HyperLinkEx gitHubRepository;
 
 		/// \brief <em>Retrieves whether a window handle belongs to one of the dialog's static controls</em>
 		///
