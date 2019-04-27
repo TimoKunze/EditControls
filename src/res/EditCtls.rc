@@ -82,7 +82,7 @@ BEGIN
 #else
             VALUE "InternalName", "EditCtlsA.ocx"
 #endif
-            VALUE "LegalCopyright", "Copyright (C) 2006-2018 Timo ""TimoSoft"" Kunze"
+            VALUE "LegalCopyright", "Copyright (C) 2006-2019 Timo ""TimoSoft"" Kunze"
 #ifdef _UNICODE
             VALUE "OriginalFilename", "EditCtlsU.ocx"
 #else
