@@ -301,8 +301,12 @@ FindDataEntry:
 
 	if(!pDataEntry->pData) {
 		if(secondChance) {
-			// format not supported
-			return DV_E_FORMATETC;
+			if(properties.pOwnerTxtBox && properties.pOwnerTxtBox->dragDropStatus.IsDragging()) {
+				return S_OK;
+			} else {
+				// format not supported
+				return DV_E_FORMATETC;
+			}
 		}
 
 		// raise the OLESetData event

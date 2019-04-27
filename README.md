@@ -1,6 +1,6 @@
 <p align=center>
-  <a href="https://github.com/TimoKunze/EditControls/releases/tag/1.10.3">
-    <img alt="Release 1.10.3 Release" src="https://img.shields.io/badge/release-1.10.3-0688CB.svg">
+  <a href="https://github.com/TimoKunze/EditControls/releases/tag/1.10.4">
+    <img alt="Release 1.10.4 Release" src="https://img.shields.io/badge/release-1.10.4-0688CB.svg">
   </a>
   <a href="https://github.com/TimoKunze/EditControls/releases">
     <img alt="Download EditControls" src="https://img.shields.io/badge/download-latest-0688CB.svg">

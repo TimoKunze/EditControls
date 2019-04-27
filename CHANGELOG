@@ -1,3 +1,9 @@
+Version 1.10.4 - 27/04/2019
+
+- FIX: Dragging data to certain programs like Total Commander or FileZilla did not work if the data was provided only in the OLESetData event.
+
+
+
 Version 1.10.3 - 27/01/2018
 
 - Upgraded to WTL 10.
