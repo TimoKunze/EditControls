@@ -1,6 +1,6 @@
 HKCR
 {
-	EditCtlsU.StringProperties.1 = s 'TimoSoft StringProperties Class 1.10 (Unicode)'
+	EditCtlsU.StringProperties.1 = s 'TimoSoft StringProperties Class 1.11 (Unicode)'
 	{
 		CLSID = s '{6D2E4D8F-1EC0-4fb4-8E38-D1E46C95B047}'
 	}

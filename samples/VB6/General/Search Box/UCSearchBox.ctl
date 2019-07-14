@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{A8F9B8E7-E699-4FCE-A647-72C877F8E632}#1.10#0"; "EditCtlsU.ocx"
+Object = "{A8F9B8E7-E699-4FCE-A647-72C877F8E632}#1.11#0"; "EditCtlsU.ocx"
 Object = "{5D0D0ABC-4898-4E46-AB48-291074A737A1}#1.0#0"; "TBarCtlsU.ocx"
 Begin VB.UserControl UCSearchBox 
    ClientHeight    =   1290

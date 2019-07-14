@@ -1,6 +1,6 @@
 HKCR
 {
-	EditCtlsU.UpDownAccelerators.1 = s 'TimoSoft UpDownAccelerators Class 1.10 (Unicode)'
+	EditCtlsU.UpDownAccelerators.1 = s 'TimoSoft UpDownAccelerators Class 1.11 (Unicode)'
 	{
 		CLSID = s '{4F3D09B9-1A9F-4408-88DD-4CAE6FB15F4D}'
 	}

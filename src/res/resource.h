@@ -7,13 +7,13 @@
 
 
 #define VERSION_MAJOR																1
-#define VERSION_MINOR																10
-#define VERSION_REVISION1														4
+#define VERSION_MINOR																11
+#define VERSION_REVISION1														0
 #define VERSION_REVISION2														0
-#define VERSION_BUILD																212
-#define STRFILEVERSION															"1.10.4.212"
-#define STRPRODUCTVERSION														"1.10"
-#define STRTIMESTAMP																"2019/04/27 02:09:07"
+#define VERSION_BUILD																214
+#define STRFILEVERSION															"1.11.0.214"
+#define STRPRODUCTVERSION														"1.11"
+#define STRTIMESTAMP																"2019/07/14 12:45:11"
 
 #define IDB_HOTKEYBOX																1
 #define IDB_IPADDRESSBOX														2

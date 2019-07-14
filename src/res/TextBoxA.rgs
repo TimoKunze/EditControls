@@ -1,18 +1,18 @@
 HKCR
 {
-	EditCtlsA.TextBox.1 = s 'TimoSoft TextBox Control 1.10 (ANSI)'
+	EditCtlsA.TextBox.1 = s 'TimoSoft TextBox Control 1.11 (ANSI)'
 	{
 		CLSID = s '{9F638CBC-55F7-4ab2-AF64-B83E8CCD7528}'
 		'Insertable'
 	}
-	EditCtlsA.TextBox = s 'TimoSoft TextBox Control 1.10 (ANSI)'
+	EditCtlsA.TextBox = s 'TimoSoft TextBox Control 1.11 (ANSI)'
 	{
 		CLSID = s '{9F638CBC-55F7-4ab2-AF64-B83E8CCD7528}'
 		CurVer = s 'EditCtlsA.TextBox.1'
 	}
 	NoRemove CLSID
 	{
-		ForceRemove {9F638CBC-55F7-4ab2-AF64-B83E8CCD7528} = s 'TimoSoft TextBox Control 1.10 (ANSI)'
+		ForceRemove {9F638CBC-55F7-4ab2-AF64-B83E8CCD7528} = s 'TimoSoft TextBox Control 1.11 (ANSI)'
 		{
 			ProgID = s 'EditCtlsA.TextBox.1'
 			VersionIndependentProgID = s 'EditCtlsA.TextBox'
@@ -38,7 +38,7 @@ HKCR
 				'1' = s '%OLEMISC%'
 			}
 			'TypeLib' = s '{EA57D88C-8144-415a-9666-B7067B74C295}'
-			'Version' = s '1.10'
+			'Version' = s '1.11'
 		}
 	}
 }

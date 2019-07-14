@@ -1,8 +1,8 @@
 VERSION 5.00
-Object = "{A8F9B8E7-E699-4FCE-A647-72C877F8E632}#1.10#0"; "EditCtlsU.ocx"
+Object = "{A8F9B8E7-E699-4FCE-A647-72C877F8E632}#1.11#0"; "EditCtlsU.ocx"
 Object = "{5D0D0ABC-4898-4E46-AB48-291074A737A1}#1.0#0"; "TBarCtlsU.ocx"
 Begin VB.Form frmMain 
-   Caption         =   "EditControls 1.10 - Search Box Sample"
+   Caption         =   "EditControls 1.11 - Search Box Sample"
    ClientHeight    =   2850
    ClientLeft      =   120
    ClientTop       =   450

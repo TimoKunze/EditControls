@@ -1,18 +1,18 @@
 HKCR
 {
-	EditCtlsA.UpDownTextBox.1 = s 'TimoSoft UpDownTextBox Control 1.10 (ANSI)'
+	EditCtlsA.UpDownTextBox.1 = s 'TimoSoft UpDownTextBox Control 1.11 (ANSI)'
 	{
 		CLSID = s '{32CC1D14-C29B-4a2d-A4A1-FAD21B6C0997}'
 		'Insertable'
 	}
-	EditCtlsA.UpDownTextBox = s 'TimoSoft UpDownTextBox Control 1.10 (ANSI)'
+	EditCtlsA.UpDownTextBox = s 'TimoSoft UpDownTextBox Control 1.11 (ANSI)'
 	{
 		CLSID = s '{32CC1D14-C29B-4a2d-A4A1-FAD21B6C0997}'
 		CurVer = s 'EditCtlsA.UpDownTextBox.1'
 	}
 	NoRemove CLSID
 	{
-		ForceRemove {32CC1D14-C29B-4a2d-A4A1-FAD21B6C0997} = s 'TimoSoft UpDownTextBox Control 1.10 (ANSI)'
+		ForceRemove {32CC1D14-C29B-4a2d-A4A1-FAD21B6C0997} = s 'TimoSoft UpDownTextBox Control 1.11 (ANSI)'
 		{
 			ProgID = s 'EditCtlsA.UpDownTextBox.1'
 			VersionIndependentProgID = s 'EditCtlsA.UpDownTextBox'
@@ -38,7 +38,7 @@ HKCR
 				'1' = s '%OLEMISC%'
 			}
 			'TypeLib' = s '{EA57D88C-8144-415a-9666-B7067B74C295}'
-			'Version' = s '1.10'
+			'Version' = s '1.11'
 		}
 	}
 }

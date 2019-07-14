@@ -1,3 +1,10 @@
+Version 1.11.0 - 14/07/2019
+
+- Support the Windows 10 emoji IME.
+- Support input of Hindi text.
+
+
+
 Version 1.10.4 - 27/04/2019
 
 - FIX: Dragging data to certain programs like Total Commander or FileZilla did not work if the data was provided only in the OLESetData event.

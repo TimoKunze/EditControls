@@ -33,6 +33,7 @@
 /// - Windows Server 2012 R2
 /// - Windows 10
 /// - Windows Server 2016
+/// - Windows Server 2019
 /// - Systems supported by Wine (Wine is a Win32 subsystem for alternative operating systems) - <strong>limited support</strong>
 /// - ReactOS (a free Windows XP clone) - <strong>limited support</strong>
 ///
@@ -142,8 +143,8 @@ import "ocidl.idl";
 
 [
 	uuid(A8F9B8E7-E699-4fce-A647-72C877F8E632),
-	version(1.10),
-	helpstring("TimoSoft EditControls 1.10 (Unicode)")
+	version(1.11),
+	helpstring("TimoSoft EditControls 1.11 (Unicode)")
 ]
 library EditCtlsLibU
 {
@@ -1074,9 +1075,9 @@ library EditCtlsLibU
 	/// \sa IOLEDataObject, _IOLEDataObjectEvents
 	[
 		uuid(2A87ADA9-8CDB-4bfc-A4A9-F781753BC26D),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("OLEDataObject Class 1.10 (Unicode)")
+		helpstring("OLEDataObject Class 1.11 (Unicode)")
 	]
 	coclass OLEDataObject
 	{
@@ -1998,8 +1999,8 @@ library EditCtlsLibU
 	/// \sa IHotKeyBox, _IHotKeyBoxEvents
 	[
 		uuid(7E32007E-7379-466e-9717-7249001F8E09),
-		version(1.10),
-		helpstring("HotKeyBox Control 1.10 (Unicode)")
+		version(1.11),
+		helpstring("HotKeyBox Control 1.11 (Unicode)")
 	]
 	coclass HotKeyBox
 	{
@@ -2994,8 +2995,8 @@ library EditCtlsLibU
 	/// \sa IIPAddressBox, _IIPAddressBoxEvents
 	[
 		uuid(235CD618-6B7F-4075-ADEF-057A8EF6A7CF),
-		version(1.10),
-		helpstring("IPAddressBox Control 1.10 (Unicode)")
+		version(1.11),
+		helpstring("IPAddressBox Control 1.11 (Unicode)")
 	]
 	coclass IPAddressBox
 	{
@@ -5068,8 +5069,8 @@ library EditCtlsLibU
 	/// \sa ITextBox, _ITextBoxEvents
 	[
 		uuid(336D591B-C170-4e59-96C7-6E4848F3F8BC),
-		version(1.10),
-		helpstring("TextBox Control 1.10 (Unicode)")
+		version(1.11),
+		helpstring("TextBox Control 1.11 (Unicode)")
 	]
 	coclass TextBox
 	{
@@ -5146,9 +5147,9 @@ library EditCtlsLibU
 	///     VirtualUpDownAccelerators
 	[
 		uuid(0D35892D-6260-415c-8657-521CFF8C9FB9),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("VirtualUpDownAccelerator Class 1.10 (Unicode)")
+		helpstring("VirtualUpDownAccelerator Class 1.11 (Unicode)")
 	]
 	coclass VirtualUpDownAccelerator
 	{
@@ -5238,9 +5239,9 @@ library EditCtlsLibU
 	///     VirtualUpDownAccelerator
 	[
 		uuid(159EA95A-8BE0-4ff1-BCA2-A69455121F5A),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("VirtualUpDownAccelerators Class 1.10 (Unicode)")
+		helpstring("VirtualUpDownAccelerators Class 1.11 (Unicode)")
 	]
 	coclass VirtualUpDownAccelerators
 	{
@@ -5329,9 +5330,9 @@ library EditCtlsLibU
 	/// \sa IUpDownAccelerator, _IUpDownAcceleratorEvents, UpDownTextBox, UpDownAccelerators
 	[
 		uuid(8B190BC6-9009-4704-A46A-CB3ABC1B68FC),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("UpDownAccelerator Class 1.10 (Unicode)")
+		helpstring("UpDownAccelerator Class 1.11 (Unicode)")
 	]
 	coclass UpDownAccelerator
 	{
@@ -5457,9 +5458,9 @@ library EditCtlsLibU
 	/// \sa IUpDownAccelerators, _IUpDownAcceleratorsEvents, UpDownTextBox, UpDownAccelerator
 	[
 		uuid(4F3D09B9-1A9F-4408-88DD-4CAE6FB15F4D),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("UpDownAccelerators Class 1.10 (Unicode)")
+		helpstring("UpDownAccelerators Class 1.11 (Unicode)")
 	]
 	coclass UpDownAccelerators
 	{
@@ -7134,8 +7135,8 @@ library EditCtlsLibU
 	/// \sa IUpDownTextBox, _IUpDownTextBoxEvents
 	[
 		uuid(D4D26612-2A29-480c-8DD2-DA0B3205E635),
-		version(1.10),
-		helpstring("UpDownTextBox Control 1.10 (Unicode)")
+		version(1.11),
+		helpstring("UpDownTextBox Control 1.11 (Unicode)")
 	]
 	coclass UpDownTextBox
 	{
@@ -7146,9 +7147,9 @@ library EditCtlsLibU
 
 	[
 		uuid(E35CA24E-D986-4570-89B4-5C03B2784B0C),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("CommonProperties Class 1.10 (Unicode)"),
+		helpstring("CommonProperties Class 1.11 (Unicode)"),
 		hidden
 	]
 	coclass CommonProperties
@@ -7159,9 +7160,9 @@ library EditCtlsLibU
 
 	[
 		uuid(6D2E4D8F-1EC0-4fb4-8E38-D1E46C95B047),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("StringProperties Class 1.10 (Unicode)"),
+		helpstring("StringProperties Class 1.11 (Unicode)"),
 		hidden
 	]
 	coclass StringProperties

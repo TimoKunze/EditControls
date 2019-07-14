@@ -1,6 +1,6 @@
 HKCR
 {
-	EditCtlsA.VirtualUpDownAccelerator.1 = s 'TimoSoft VirtualUpDownAccelerator Class 1.10 (ANSI)'
+	EditCtlsA.VirtualUpDownAccelerator.1 = s 'TimoSoft VirtualUpDownAccelerator Class 1.11 (ANSI)'
 	{
 		CLSID = s '{0EA22E94-F9C2-4424-BB9A-8E52EA6190D6}'
 	}

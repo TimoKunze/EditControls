@@ -74,6 +74,8 @@ UpDownTextBox::UpDownTextBox() :
 	// always create a window, even if the container supports windowless controls
 	m_bWindowOnly = TRUE;
 
+	cachedWParam = 0;
+
 	// Microsoft couldn't make it more difficult to detect whether we should use themes or not...
 	flags.usingThemes = FALSE;
 	if(CTheme::IsThemingSupported() && RunTimeHelper::IsCommCtrl6()) {
@@ -4630,9 +4632,17 @@ LRESULT UpDownTextBox::OnWindowPosChanged(UINT /*message*/, WPARAM /*wParam*/, L
 	return 0;
 }
 
-LRESULT UpDownTextBox::OnEditChar(UINT /*message*/, WPARAM wParam, LPARAM /*lParam*/, BOOL& wasHandled)
+LRESULT UpDownTextBox::OnEditChar(UINT message, WPARAM wParam, LPARAM lParam, BOOL& wasHandled)
 {
 	wasHandled = FALSE;
+
+	BOOL changedWParam = FALSE;
+	if(cachedWParam) {
+		wParam = cachedWParam;
+		cachedWParam = 0;
+		changedWParam = TRUE;
+	}
+
 	if(!(properties.disabledEvents & deKeyboardEvents)) {
 		SHORT keyAscii = static_cast<SHORT>(wParam);
 		if(SUCCEEDED(Raise_KeyPress(&keyAscii))) {
@@ -4643,6 +4653,12 @@ LRESULT UpDownTextBox::OnEditChar(UINT /*message*/, WPARAM wParam, LPARAM /*lPar
 			}
 		}
 	}
+
+	if(!wasHandled && changedWParam) {
+		wasHandled = TRUE;
+		return containedEdit.DefWindowProc(message, wParam, lParam);
+	}
+
 	return 0;
 }
 
@@ -4662,6 +4678,11 @@ LRESULT UpDownTextBox::OnEditContextMenu(UINT /*message*/, WPARAM /*wParam*/, LP
 	}
 
 	return 0;
+}
+
+LRESULT UpDownTextBox::OnEditIMEChar(UINT /*message*/, WPARAM wParam, LPARAM lParam, BOOL& /*wasHandled*/)
+{
+	return containedEdit.SendMessage(WM_CHAR, wParam, lParam);
 }
 
 LRESULT UpDownTextBox::OnEditInputLangChange(UINT message, WPARAM wParam, LPARAM lParam, BOOL& /*wasHandled*/)
@@ -4691,6 +4712,14 @@ LRESULT UpDownTextBox::OnEditKeyDown(UINT message, WPARAM wParam, LPARAM lParam,
 			}
 		}
 	}
+
+	MSG msg;
+	if(PeekMessage(&msg, containedEdit, WM_CHAR, WM_CHAR, PM_NOREMOVE)) {
+		cachedWParam = msg.wParam;
+	} else {
+		cachedWParam = 0;
+	}
+
 	return containedEdit.DefWindowProc(message, wParam, lParam);
 }
 
@@ -4709,6 +4738,14 @@ LRESULT UpDownTextBox::OnEditKeyUp(UINT message, WPARAM wParam, LPARAM lParam, B
 			}
 		}
 	}
+
+	MSG msg;
+	if(PeekMessage(&msg, containedEdit, WM_CHAR, WM_CHAR, PM_NOREMOVE)) {
+		cachedWParam = msg.wParam;
+	} else {
+		cachedWParam = 0;
+	}
+
 	return containedEdit.DefWindowProc(message, wParam, lParam);
 }
 

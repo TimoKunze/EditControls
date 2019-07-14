@@ -33,6 +33,7 @@
 /// - Windows Server 2012 R2
 /// - Windows 10
 /// - Windows Server 2016
+/// - Windows Server 2019
 ///
 /// Some features have additional requirements which are mentioned in the affected feature's
 /// documentation.\n
@@ -140,8 +141,8 @@ import "ocidl.idl";
 
 [
 	uuid(EA57D88C-8144-415a-9666-B7067B74C295),
-	version(1.10),
-	helpstring("TimoSoft EditControls 1.10 (ANSI)")
+	version(1.11),
+	helpstring("TimoSoft EditControls 1.11 (ANSI)")
 ]
 library EditCtlsLibA
 {
@@ -1072,9 +1073,9 @@ library EditCtlsLibA
 	/// \sa IOLEDataObject, _IOLEDataObjectEvents
 	[
 		uuid(585FAC58-3019-4f4e-BF7F-1750FC02D54B),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("OLEDataObject Class 1.10 (ANSI)")
+		helpstring("OLEDataObject Class 1.11 (ANSI)")
 	]
 	coclass OLEDataObject
 	{
@@ -1996,8 +1997,8 @@ library EditCtlsLibA
 	/// \sa IHotKeyBox, _IHotKeyBoxEvents
 	[
 		uuid(5DFB60A6-4118-4249-828A-7AAE9FD269F6),
-		version(1.10),
-		helpstring("HotKeyBox Control 1.10 (ANSI)")
+		version(1.11),
+		helpstring("HotKeyBox Control 1.11 (ANSI)")
 	]
 	coclass HotKeyBox
 	{
@@ -2992,8 +2993,8 @@ library EditCtlsLibA
 	/// \sa IIPAddressBox, _IIPAddressBoxEvents
 	[
 		uuid(5AF86E04-CC18-4df5-A51A-7799A72D4187),
-		version(1.10),
-		helpstring("IPAddressBox Control 1.10 (ANSI)")
+		version(1.11),
+		helpstring("IPAddressBox Control 1.11 (ANSI)")
 	]
 	coclass IPAddressBox
 	{
@@ -5066,8 +5067,8 @@ library EditCtlsLibA
 	/// \sa ITextBox, _ITextBoxEvents
 	[
 		uuid(9F638CBC-55F7-4ab2-AF64-B83E8CCD7528),
-		version(1.10),
-		helpstring("TextBox Control 1.10 (ANSI)")
+		version(1.11),
+		helpstring("TextBox Control 1.11 (ANSI)")
 	]
 	coclass TextBox
 	{
@@ -5144,9 +5145,9 @@ library EditCtlsLibA
 	///     VirtualUpDownAccelerators
 	[
 		uuid(0EA22E94-F9C2-4424-BB9A-8E52EA6190D6),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("VirtualUpDownAccelerator Class 1.10 (ANSI)")
+		helpstring("VirtualUpDownAccelerator Class 1.11 (ANSI)")
 	]
 	coclass VirtualUpDownAccelerator
 	{
@@ -5236,9 +5237,9 @@ library EditCtlsLibA
 	///     VirtualUpDownAccelerator
 	[
 		uuid(382F4B6F-D736-490d-8EBA-071998C9A684),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("VirtualUpDownAccelerators Class 1.10 (ANSI)")
+		helpstring("VirtualUpDownAccelerators Class 1.11 (ANSI)")
 	]
 	coclass VirtualUpDownAccelerators
 	{
@@ -5327,9 +5328,9 @@ library EditCtlsLibA
 	/// \sa IUpDownAccelerator, _IUpDownAcceleratorEvents, UpDownTextBox, UpDownAccelerators
 	[
 		uuid(5BF36676-BC41-4f40-8605-20D58578202D),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("UpDownAccelerator Class 1.10 (ANSI)")
+		helpstring("UpDownAccelerator Class 1.11 (ANSI)")
 	]
 	coclass UpDownAccelerator
 	{
@@ -5455,9 +5456,9 @@ library EditCtlsLibA
 	/// \sa IUpDownAccelerators, _IUpDownAcceleratorsEvents, UpDownTextBox, UpDownAccelerator
 	[
 		uuid(4ACAD27F-646F-4d57-A29D-FD8985350C05),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("UpDownAccelerators Class 1.10 (ANSI)")
+		helpstring("UpDownAccelerators Class 1.11 (ANSI)")
 	]
 	coclass UpDownAccelerators
 	{
@@ -7132,8 +7133,8 @@ library EditCtlsLibA
 	/// \sa IUpDownTextBox, _IUpDownTextBoxEvents
 	[
 		uuid(32CC1D14-C29B-4a2d-A4A1-FAD21B6C0997),
-		version(1.10),
-		helpstring("UpDownTextBox Control 1.10 (ANSI)")
+		version(1.11),
+		helpstring("UpDownTextBox Control 1.11 (ANSI)")
 	]
 	coclass UpDownTextBox
 	{
@@ -7144,9 +7145,9 @@ library EditCtlsLibA
 
 	[
 		uuid(BE3824B6-1761-494b-8399-648B23834DB8),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("CommonProperties Class 1.10 (ANSI)"),
+		helpstring("CommonProperties Class 1.11 (ANSI)"),
 		hidden
 	]
 	coclass CommonProperties
@@ -7157,9 +7158,9 @@ library EditCtlsLibA
 
 	[
 		uuid(B016D666-C422-4060-AE34-CEA0D8146A51),
-		version(1.10),
+		version(1.11),
 		noncreatable,
-		helpstring("StringProperties Class 1.10 (ANSI)"),
+		helpstring("StringProperties Class 1.11 (ANSI)"),
 		hidden
 	]
 	coclass StringProperties

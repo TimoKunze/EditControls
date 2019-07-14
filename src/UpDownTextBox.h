@@ -216,6 +216,7 @@ public:
 			ALT_MSG_MAP(1)
 			MESSAGE_HANDLER(WM_CHAR, OnEditChar)
 			MESSAGE_HANDLER(WM_CONTEXTMENU, OnEditContextMenu)
+			MESSAGE_HANDLER(WM_IME_CHAR, OnEditIMEChar)
 			MESSAGE_HANDLER(WM_INPUTLANGCHANGE, OnEditInputLangChange)
 			MESSAGE_HANDLER(WM_KEYDOWN, OnEditKeyDown)
 			MESSAGE_HANDLER(WM_KEYUP, OnEditKeyUp)
@@ -2686,10 +2687,10 @@ protected:
 	/// Will be called if a \c WM_KEYDOWN message was translated by \c TranslateMessage.
 	/// We use this handler to raise the \c KeyPress event.
 	///
-	/// \sa OnEditKeyDown, Raise_KeyPress,
+	/// \sa OnEditKeyDown, OnEditIMEChar, Raise_KeyPress,
 	///     <a href="https://msdn.microsoft.com/en-us/library/ms646276.aspx">WM_CHAR</a>,
 	///     <a href="https://msdn.microsoft.com/en-us/library/ms644955.aspx">TranslateMessage</a>
-	LRESULT OnEditChar(UINT /*message*/, WPARAM wParam, LPARAM /*lParam*/, BOOL& wasHandled);
+	LRESULT OnEditChar(UINT message, WPARAM wParam, LPARAM lParam, BOOL& wasHandled);
 	/// \brief <em>\c WM_CONTEXTMENU handler</em>
 	///
 	/// Will be called if the contained edit control's context menu should be displayed.
@@ -2698,6 +2699,16 @@ protected:
 	/// \sa OnUpDownContextMenu, OnEditRButtonDown, Raise_ContextMenu,
 	///     <a href="https://msdn.microsoft.com/en-us/library/ms647592.aspx">WM_CONTEXTMENU</a>
 	LRESULT OnEditContextMenu(UINT /*message*/, WPARAM /*wParam*/, LPARAM lParam, BOOL& wasHandled);
+	/// \brief <em>\c WM_IME_CHAR handler</em>
+	///
+	/// Sent by the input method editor (IME) when a character has been composited while the contained edit
+	/// control has the keyboard focus.
+	/// We use this handler to make more IME implementations (namely the one for emojis) work with ANSI
+	/// applications like all VB6 applications.
+	///
+	/// \sa OnEditChar,
+	///     <a href="https://docs.microsoft.com/en-us/windows/win32/intl/wm-ime-char">WM_IME_CHAR</a>
+	LRESULT OnEditIMEChar(UINT /*message*/, WPARAM wParam, LPARAM lParam, BOOL& /*wasHandled*/);
 	/// \brief <em>\c WM_INPUTLANGCHANGE handler</em>
 	///
 	/// Will be called after an application's input language has been changed.
@@ -5045,6 +5056,17 @@ protected:
 	///
 	/// \deprecated This member should be used on Windows XP only.
 	CBrush themedBackBrush;
+	/// \brief <em>Holds the \c wParam parameter of the next \c WM_CHAR message</em>
+	///
+	/// The VB6 runtime implements the message loop using \c TranslateMessageA. This destroys input of
+	/// Unicode characters if IME is not used. For instance Hindi cannot be inputted although the control is
+	/// a Unicode window. To workaround this problem, we check the message queue on each \c WM_KEYDOWN and
+	/// \c WM_KEYUP message. If it contains a \c WM_CHAR message, we store its \c wParam parameter and use it
+	/// instead of the broken one when handling this \c WM_CHAR message.
+	///
+	/// \sa OnEditChar, OnEditKeyDown, OnEditKeyUp,
+	///     <a href="https://msdn.microsoft.com/en-us/library/ms644955.aspx">TranslateMessage</a>
+	WPARAM cachedWParam;
 
 private:
 };     // UpDownTextBox

@@ -1,6 +1,6 @@
 HKCR
 {
-	EditCtlsU.OLEDataObject.1 = s 'TimoSoft OLEDataObject Class 1.10 (Unicode)'
+	EditCtlsU.OLEDataObject.1 = s 'TimoSoft OLEDataObject Class 1.11 (Unicode)'
 	{
 		CLSID = s '{2A87ADA9-8CDB-4bfc-A4A9-F781753BC26D}'
 	}

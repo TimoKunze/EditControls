@@ -199,6 +199,7 @@ public:
 			INDEXED_MESSAGE_HANDLER(WM_CHAR, OnEditChar)
 			MESSAGE_HANDLER(WM_CONTEXTMENU, OnContextMenu)
 			INDEXED_MESSAGE_HANDLER(WM_DESTROY, OnEditDestroy)
+			INDEXED_MESSAGE_HANDLER(WM_IME_CHAR, OnEditIMEChar)
 			INDEXED_MESSAGE_HANDLER(WM_KEYDOWN, OnEditKeyDown)
 			INDEXED_MESSAGE_HANDLER(WM_KEYUP, OnEditKeyUp)
 			INDEXED_MESSAGE_HANDLER(WM_LBUTTONDBLCLK, OnEditLButtonDblClk)
@@ -227,6 +228,7 @@ public:
 			INDEXED_MESSAGE_HANDLER(WM_CHAR, OnEditChar)
 			MESSAGE_HANDLER(WM_CONTEXTMENU, OnContextMenu)
 			INDEXED_MESSAGE_HANDLER(WM_DESTROY, OnEditDestroy)
+			INDEXED_MESSAGE_HANDLER(WM_IME_CHAR, OnEditIMEChar)
 			INDEXED_MESSAGE_HANDLER(WM_KEYDOWN, OnEditKeyDown)
 			INDEXED_MESSAGE_HANDLER(WM_KEYUP, OnEditKeyUp)
 			INDEXED_MESSAGE_HANDLER(WM_LBUTTONDBLCLK, OnEditLButtonDblClk)
@@ -255,6 +257,7 @@ public:
 			INDEXED_MESSAGE_HANDLER(WM_CHAR, OnEditChar)
 			MESSAGE_HANDLER(WM_CONTEXTMENU, OnContextMenu)
 			INDEXED_MESSAGE_HANDLER(WM_DESTROY, OnEditDestroy)
+			INDEXED_MESSAGE_HANDLER(WM_IME_CHAR, OnEditIMEChar)
 			INDEXED_MESSAGE_HANDLER(WM_KEYDOWN, OnEditKeyDown)
 			INDEXED_MESSAGE_HANDLER(WM_KEYUP, OnEditKeyUp)
 			INDEXED_MESSAGE_HANDLER(WM_LBUTTONDBLCLK, OnEditLButtonDblClk)
@@ -283,6 +286,7 @@ public:
 			INDEXED_MESSAGE_HANDLER(WM_CHAR, OnEditChar)
 			MESSAGE_HANDLER(WM_CONTEXTMENU, OnContextMenu)
 			INDEXED_MESSAGE_HANDLER(WM_DESTROY, OnEditDestroy)
+			INDEXED_MESSAGE_HANDLER(WM_IME_CHAR, OnEditIMEChar)
 			INDEXED_MESSAGE_HANDLER(WM_KEYDOWN, OnEditKeyDown)
 			INDEXED_MESSAGE_HANDLER(WM_KEYUP, OnEditKeyUp)
 			INDEXED_MESSAGE_HANDLER(WM_LBUTTONDBLCLK, OnEditLButtonDblClk)
@@ -1808,10 +1812,10 @@ protected:
 	/// Will be called if a \c WM_KEYDOWN message was translated by \c TranslateMessage.
 	/// We use this handler to raise the \c KeyPress event.
 	///
-	/// \sa OnEditKeyDown, Raise_KeyPress,
+	/// \sa OnEditKeyDown, OnEditIMEChar, Raise_KeyPress,
 	///     <a href="https://msdn.microsoft.com/en-us/library/ms646276.aspx">WM_CHAR</a>,
 	///     <a href="https://msdn.microsoft.com/en-us/library/ms644955.aspx">TranslateMessage</a>
-	LRESULT OnEditChar(LONG index, UINT /*message*/, WPARAM wParam, LPARAM /*lParam*/, BOOL& wasHandled);
+	LRESULT OnEditChar(LONG index, UINT message, WPARAM wParam, LPARAM lParam, BOOL& wasHandled);
 	/// \brief <em>\c WM_DESTROY handler</em>
 	///
 	/// Will be called while a contained edit control is being destroyed.
@@ -1821,6 +1825,16 @@ protected:
 	/// \sa OnDestroy,
 	///     <a href="https://msdn.microsoft.com/en-us/library/ms632620.aspx">WM_DESTROY</a>
 	LRESULT OnEditDestroy(LONG index, UINT /*message*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& wasHandled);
+	/// \brief <em>\c WM_IME_CHAR handler</em>
+	///
+	/// Sent by the input method editor (IME) when a character has been composited while a contained edit
+	/// control has the keyboard focus.
+	/// We use this handler to make more IME implementations (namely the one for emojis) work with ANSI
+	/// applications like all VB6 applications.
+	///
+	/// \sa OnEditChar,
+	///     <a href="https://docs.microsoft.com/en-us/windows/win32/intl/wm-ime-char">WM_IME_CHAR</a>
+	LRESULT OnEditIMEChar(LONG index, UINT /*message*/, WPARAM wParam, LPARAM lParam, BOOL& /*wasHandled*/);
 	/// \brief <em>\c WM_KEYDOWN handler</em>
 	///
 	/// Will be called if a nonsystem key is pressed while a contained edit control has the keyboard focus.
@@ -3604,6 +3618,18 @@ protected:
 		/// \brief <em>The interval of the timer that is used to redraw the control window after recreation</em>
 		static const UINT INT_REDRAW = 10;
 	} timers;
+
+	/// \brief <em>Holds the \c wParam parameter of the next \c WM_CHAR message</em>
+	///
+	/// The VB6 runtime implements the message loop using \c TranslateMessageA. This destroys input of
+	/// Unicode characters if IME is not used. For instance Hindi cannot be inputted although the control is
+	/// a Unicode window. To workaround this problem, we check the message queue on each \c WM_KEYDOWN and
+	/// \c WM_KEYUP message. If it contains a \c WM_CHAR message, we store its \c wParam parameter and use it
+	/// instead of the broken one when handling this \c WM_CHAR message.
+	///
+	/// \sa OnEditChar, OnEditKeyDown, OnEditKeyUp,
+	///     <a href="https://msdn.microsoft.com/en-us/library/ms644955.aspx">TranslateMessage</a>
+	WPARAM cachedWParam[4];
 
 private:
 };     // IPAddressBox

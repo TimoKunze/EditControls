@@ -1,18 +1,18 @@
 HKCR
 {
-	EditCtlsU.IPAddressBox.1 = s 'TimoSoft IPAddressBox Control 1.10 (Unicode)'
+	EditCtlsU.IPAddressBox.1 = s 'TimoSoft IPAddressBox Control 1.11 (Unicode)'
 	{
 		CLSID = s '{235CD618-6B7F-4075-ADEF-057A8EF6A7CF}'
 		'Insertable'
 	}
-	EditCtlsU.IPAddressBox = s 'TimoSoft IPAddressBox Control 1.10 (Unicode)'
+	EditCtlsU.IPAddressBox = s 'TimoSoft IPAddressBox Control 1.11 (Unicode)'
 	{
 		CLSID = s '{235CD618-6B7F-4075-ADEF-057A8EF6A7CF}'
 		CurVer = s 'EditCtlsU.IPAddressBox.1'
 	}
 	NoRemove CLSID
 	{
-		ForceRemove {235CD618-6B7F-4075-ADEF-057A8EF6A7CF} = s 'TimoSoft IPAddressBox Control 1.10 (Unicode)'
+		ForceRemove {235CD618-6B7F-4075-ADEF-057A8EF6A7CF} = s 'TimoSoft IPAddressBox Control 1.11 (Unicode)'
 		{
 			ProgID = s 'EditCtlsU.IPAddressBox.1'
 			VersionIndependentProgID = s 'EditCtlsU.IPAddressBox'
@@ -37,7 +37,7 @@ HKCR
 				'1' = s '%OLEMISC%'
 			}
 			'TypeLib' = s '{A8F9B8E7-E699-4fce-A647-72C877F8E632}'
-			'Version' = s '1.10'
+			'Version' = s '1.11'
 		}
 	}
 }

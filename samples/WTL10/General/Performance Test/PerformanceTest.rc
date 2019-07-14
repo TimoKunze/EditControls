@@ -63,7 +63,7 @@ IDR_MAINFRAME           ICON                    "res\\PerformanceTest.ico"
 IDD_MAINDLG DIALOGEX 0, 0, 390, 210
 STYLE DS_SETFONT | DS_FIXEDSYS | DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "EditControls 1.10 - Performance Demonstration Sample"
+CAPTION "EditControls 1.11 - Performance Demonstration Sample"
 FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
     PUSHBUTTON      "&About...",ID_APP_ABOUT,335,191,50,14
@@ -101,12 +101,12 @@ BEGIN
     BEGIN
         BLOCK "040904B0"
         BEGIN
-            VALUE "FileDescription", "Performance demonstration sample for TimoSoft EditControls 1.10"
+            VALUE "FileDescription", "Performance demonstration sample for TimoSoft EditControls 1.11"
             VALUE "FileVersion", "1.0.0.0"
             VALUE "InternalName", "PerformanceTest"
             VALUE "OriginalFilename", "PerformanceTest.exe"
-            VALUE "ProductName", "TimoSoft EditControls 1.10"
-            VALUE "ProductVersion", "1.10"
+            VALUE "ProductName", "TimoSoft EditControls 1.11"
+            VALUE "ProductVersion", "1.11"
         END
     END
     BLOCK "VarFileInfo"

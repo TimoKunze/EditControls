@@ -72,6 +72,8 @@ TextBox::TextBox()
 	// always create a window, even if the container supports windowless controls
 	m_bWindowOnly = TRUE;
 
+	cachedWParam = 0;
+
 	// Microsoft couldn't make it more difficult to detect whether we should use themes or not...
 	flags.usingThemes = FALSE;
 	if(CTheme::IsThemingSupported() && RunTimeHelper::IsCommCtrl6()) {
@@ -5657,9 +5659,17 @@ STDMETHODIMP TextBox::Undo(VARIANT_BOOL* pSucceeded)
 }
 
 
-LRESULT TextBox::OnChar(UINT /*message*/, WPARAM wParam, LPARAM /*lParam*/, BOOL& wasHandled)
+LRESULT TextBox::OnChar(UINT message, WPARAM wParam, LPARAM lParam, BOOL& wasHandled)
 {
 	wasHandled = FALSE;
+
+	BOOL changedWParam = FALSE;
+	if(cachedWParam) {
+		wParam = cachedWParam;
+		cachedWParam = 0;
+		changedWParam = TRUE;
+	}
+
 	if(!(properties.disabledEvents & deKeyboardEvents)) {
 		SHORT keyAscii = static_cast<SHORT>(wParam);
 		if(SUCCEEDED(Raise_KeyPress(&keyAscii))) {
@@ -5670,6 +5680,12 @@ LRESULT TextBox::OnChar(UINT /*message*/, WPARAM wParam, LPARAM /*lParam*/, BOOL
 			}
 		}
 	}
+
+	if(!wasHandled && changedWParam) {
+		wasHandled = TRUE;
+		return DefWindowProc(message, wParam, lParam);
+	}
+
 	return 0;
 }
 
@@ -5735,6 +5751,11 @@ LRESULT TextBox::OnGetDlgCode(UINT message, WPARAM wParam, LPARAM lParam, BOOL& 
 	return lr;
 }
 
+LRESULT TextBox::OnIMEChar(UINT /*message*/, WPARAM wParam, LPARAM lParam, BOOL& /*wasHandled*/)
+{
+	return SendMessage(WM_CHAR, wParam, lParam);
+}
+
 LRESULT TextBox::OnInputLangChange(UINT message, WPARAM wParam, LPARAM lParam, BOOL& /*wasHandled*/)
 {
 	LRESULT lr = DefWindowProc(message, wParam, lParam);
@@ -5762,6 +5783,14 @@ LRESULT TextBox::OnKeyDown(UINT message, WPARAM wParam, LPARAM lParam, BOOL& /*w
 			}
 		}
 	}
+
+	MSG msg;
+	if(PeekMessage(&msg, *this, WM_CHAR, WM_CHAR, PM_NOREMOVE)) {
+		cachedWParam = msg.wParam;
+	} else {
+		cachedWParam = 0;
+	}
+
 	return DefWindowProc(message, wParam, lParam);
 }
 
@@ -5780,6 +5809,14 @@ LRESULT TextBox::OnKeyUp(UINT message, WPARAM wParam, LPARAM lParam, BOOL& /*was
 			}
 		}
 	}
+
+	MSG msg;
+	if(PeekMessage(&msg, *this, WM_CHAR, WM_CHAR, PM_NOREMOVE)) {
+		cachedWParam = msg.wParam;
+	} else {
+		cachedWParam = 0;
+	}
+
 	return DefWindowProc(message, wParam, lParam);
 }
 

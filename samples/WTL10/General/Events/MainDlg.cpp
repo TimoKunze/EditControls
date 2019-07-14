@@ -22,43 +22,43 @@ LRESULT CMainDlg::OnClose(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, B
 LRESULT CMainDlg::OnDestroy(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& bHandled)
 {
 	if(controls.txtbox0U) {
-		IDispEventImpl<IDC_TXTBOX0U, CMainDlg, &__uuidof(EditCtlsLibU::_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 10>::DispEventUnadvise(controls.txtbox0U);
+		IDispEventImpl<IDC_TXTBOX0U, CMainDlg, &__uuidof(EditCtlsLibU::_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 11>::DispEventUnadvise(controls.txtbox0U);
 		controls.txtbox0U.Release();
 	}
 	if(controls.txtbox1U) {
-		IDispEventImpl<IDC_TXTBOX1U, CMainDlg, &__uuidof(EditCtlsLibU::_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 10>::DispEventUnadvise(controls.txtbox1U);
+		IDispEventImpl<IDC_TXTBOX1U, CMainDlg, &__uuidof(EditCtlsLibU::_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 11>::DispEventUnadvise(controls.txtbox1U);
 		controls.txtbox1U.Release();
 	}
 	if(controls.ipaddrU) {
-		IDispEventImpl<IDC_IPADDRU, CMainDlg, &__uuidof(EditCtlsLibU::_IIPAddressBoxEvents), &LIBID_EditCtlsLibU, 1, 10>::DispEventUnadvise(controls.ipaddrU);
+		IDispEventImpl<IDC_IPADDRU, CMainDlg, &__uuidof(EditCtlsLibU::_IIPAddressBoxEvents), &LIBID_EditCtlsLibU, 1, 11>::DispEventUnadvise(controls.ipaddrU);
 		controls.ipaddrU.Release();
 	}
 	if(controls.hkboxU) {
-		IDispEventImpl<IDC_HKBOXU, CMainDlg, &__uuidof(EditCtlsLibU::_IHotKeyBoxEvents), &LIBID_EditCtlsLibU, 1, 10>::DispEventUnadvise(controls.hkboxU);
+		IDispEventImpl<IDC_HKBOXU, CMainDlg, &__uuidof(EditCtlsLibU::_IHotKeyBoxEvents), &LIBID_EditCtlsLibU, 1, 11>::DispEventUnadvise(controls.hkboxU);
 		controls.hkboxU.Release();
 	}
 	if(controls.udtxtboxU) {
-		IDispEventImpl<IDC_UDTXTBOXU, CMainDlg, &__uuidof(EditCtlsLibU::_IUpDownTextBoxEvents), &LIBID_EditCtlsLibU, 1, 10>::DispEventUnadvise(controls.udtxtboxU);
+		IDispEventImpl<IDC_UDTXTBOXU, CMainDlg, &__uuidof(EditCtlsLibU::_IUpDownTextBoxEvents), &LIBID_EditCtlsLibU, 1, 11>::DispEventUnadvise(controls.udtxtboxU);
 		controls.udtxtboxU.Release();
 	}
 	if(controls.txtbox0A) {
-		IDispEventImpl<IDC_TXTBOX0A, CMainDlg, &__uuidof(EditCtlsLibA::_ITextBoxEvents), &LIBID_EditCtlsLibA, 1, 10>::DispEventUnadvise(controls.txtbox0A);
+		IDispEventImpl<IDC_TXTBOX0A, CMainDlg, &__uuidof(EditCtlsLibA::_ITextBoxEvents), &LIBID_EditCtlsLibA, 1, 11>::DispEventUnadvise(controls.txtbox0A);
 		controls.txtbox0A.Release();
 	}
 	if(controls.txtbox1A) {
-		IDispEventImpl<IDC_TXTBOX1A, CMainDlg, &__uuidof(EditCtlsLibA::_ITextBoxEvents), &LIBID_EditCtlsLibA, 1, 10>::DispEventUnadvise(controls.txtbox1A);
+		IDispEventImpl<IDC_TXTBOX1A, CMainDlg, &__uuidof(EditCtlsLibA::_ITextBoxEvents), &LIBID_EditCtlsLibA, 1, 11>::DispEventUnadvise(controls.txtbox1A);
 		controls.txtbox1A.Release();
 	}
 	if(controls.ipaddrA) {
-		IDispEventImpl<IDC_IPADDRA, CMainDlg, &__uuidof(EditCtlsLibA::_IIPAddressBoxEvents), &LIBID_EditCtlsLibA, 1, 10>::DispEventUnadvise(controls.ipaddrA);
+		IDispEventImpl<IDC_IPADDRA, CMainDlg, &__uuidof(EditCtlsLibA::_IIPAddressBoxEvents), &LIBID_EditCtlsLibA, 1, 11>::DispEventUnadvise(controls.ipaddrA);
 		controls.ipaddrA.Release();
 	}
 	if(controls.hkboxA) {
-		IDispEventImpl<IDC_HKBOXA, CMainDlg, &__uuidof(EditCtlsLibA::_IHotKeyBoxEvents), &LIBID_EditCtlsLibA, 1, 10>::DispEventUnadvise(controls.hkboxA);
+		IDispEventImpl<IDC_HKBOXA, CMainDlg, &__uuidof(EditCtlsLibA::_IHotKeyBoxEvents), &LIBID_EditCtlsLibA, 1, 11>::DispEventUnadvise(controls.hkboxA);
 		controls.hkboxA.Release();
 	}
 	if(controls.udtxtboxA) {
-		IDispEventImpl<IDC_UDTXTBOXA, CMainDlg, &__uuidof(EditCtlsLibA::_IUpDownTextBoxEvents), &LIBID_EditCtlsLibA, 1, 10>::DispEventUnadvise(controls.udtxtboxA);
+		IDispEventImpl<IDC_UDTXTBOXA, CMainDlg, &__uuidof(EditCtlsLibA::_IUpDownTextBoxEvents), &LIBID_EditCtlsLibA, 1, 11>::DispEventUnadvise(controls.udtxtboxA);
 		controls.udtxtboxA.Release();
 	}
 
@@ -93,53 +93,53 @@ LRESULT CMainDlg::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam
 	txtbox0UWnd.SubclassWindow(GetDlgItem(IDC_TXTBOX0U));
 	txtbox0UWnd.QueryControl(__uuidof(EditCtlsLibU::ITextBox), reinterpret_cast<LPVOID*>(&controls.txtbox0U));
 	if(controls.txtbox0U) {
-		IDispEventImpl<IDC_TXTBOX0U, CMainDlg, &__uuidof(EditCtlsLibU::_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 10>::DispEventAdvise(controls.txtbox0U);
+		IDispEventImpl<IDC_TXTBOX0U, CMainDlg, &__uuidof(EditCtlsLibU::_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 11>::DispEventAdvise(controls.txtbox0U);
 	}
 	txtbox1UWnd.SubclassWindow(GetDlgItem(IDC_TXTBOX1U));
 	txtbox1UWnd.QueryControl(__uuidof(EditCtlsLibU::ITextBox), reinterpret_cast<LPVOID*>(&controls.txtbox1U));
 	if(controls.txtbox1U) {
-		IDispEventImpl<IDC_TXTBOX1U, CMainDlg, &__uuidof(EditCtlsLibU::_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 10>::DispEventAdvise(controls.txtbox1U);
+		IDispEventImpl<IDC_TXTBOX1U, CMainDlg, &__uuidof(EditCtlsLibU::_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 11>::DispEventAdvise(controls.txtbox1U);
 	}
 	ipaddrUWnd.SubclassWindow(GetDlgItem(IDC_IPADDRU));
 	ipaddrUWnd.QueryControl(__uuidof(EditCtlsLibU::IIPAddressBox), reinterpret_cast<LPVOID*>(&controls.ipaddrU));
 	if(controls.ipaddrU) {
-		IDispEventImpl<IDC_IPADDRU, CMainDlg, &__uuidof(EditCtlsLibU::_IIPAddressBoxEvents), &LIBID_EditCtlsLibU, 1, 10>::DispEventAdvise(controls.ipaddrU);
+		IDispEventImpl<IDC_IPADDRU, CMainDlg, &__uuidof(EditCtlsLibU::_IIPAddressBoxEvents), &LIBID_EditCtlsLibU, 1, 11>::DispEventAdvise(controls.ipaddrU);
 	}
 	hkboxUWnd.SubclassWindow(GetDlgItem(IDC_HKBOXU));
 	hkboxUWnd.QueryControl(__uuidof(EditCtlsLibU::IHotKeyBox), reinterpret_cast<LPVOID*>(&controls.hkboxU));
 	if(controls.hkboxU) {
-		IDispEventImpl<IDC_HKBOXU, CMainDlg, &__uuidof(EditCtlsLibU::_IHotKeyBoxEvents), &LIBID_EditCtlsLibU, 1, 10>::DispEventAdvise(controls.hkboxU);
+		IDispEventImpl<IDC_HKBOXU, CMainDlg, &__uuidof(EditCtlsLibU::_IHotKeyBoxEvents), &LIBID_EditCtlsLibU, 1, 11>::DispEventAdvise(controls.hkboxU);
 	}
 	udtxtboxUWnd.SubclassWindow(GetDlgItem(IDC_UDTXTBOXU));
 	udtxtboxUWnd.QueryControl(__uuidof(EditCtlsLibU::IUpDownTextBox), reinterpret_cast<LPVOID*>(&controls.udtxtboxU));
 	if(controls.udtxtboxU) {
-		IDispEventImpl<IDC_UDTXTBOXU, CMainDlg, &__uuidof(EditCtlsLibU::_IUpDownTextBoxEvents), &LIBID_EditCtlsLibU, 1, 10>::DispEventAdvise(controls.udtxtboxU);
+		IDispEventImpl<IDC_UDTXTBOXU, CMainDlg, &__uuidof(EditCtlsLibU::_IUpDownTextBoxEvents), &LIBID_EditCtlsLibU, 1, 11>::DispEventAdvise(controls.udtxtboxU);
 	}
 
 	txtbox0AWnd.SubclassWindow(GetDlgItem(IDC_TXTBOX0A));
 	txtbox0AWnd.QueryControl(__uuidof(EditCtlsLibA::ITextBox), reinterpret_cast<LPVOID*>(&controls.txtbox0A));
 	if(controls.txtbox0A) {
-		IDispEventImpl<IDC_TXTBOX0A, CMainDlg, &__uuidof(EditCtlsLibA::_ITextBoxEvents), &LIBID_EditCtlsLibA, 1, 10>::DispEventAdvise(controls.txtbox0A);
+		IDispEventImpl<IDC_TXTBOX0A, CMainDlg, &__uuidof(EditCtlsLibA::_ITextBoxEvents), &LIBID_EditCtlsLibA, 1, 11>::DispEventAdvise(controls.txtbox0A);
 	}
 	txtbox1AWnd.SubclassWindow(GetDlgItem(IDC_TXTBOX1A));
 	txtbox1AWnd.QueryControl(__uuidof(EditCtlsLibA::ITextBox), reinterpret_cast<LPVOID*>(&controls.txtbox1A));
 	if(controls.txtbox1A) {
-		IDispEventImpl<IDC_TXTBOX1A, CMainDlg, &__uuidof(EditCtlsLibA::_ITextBoxEvents), &LIBID_EditCtlsLibA, 1, 10>::DispEventAdvise(controls.txtbox1A);
+		IDispEventImpl<IDC_TXTBOX1A, CMainDlg, &__uuidof(EditCtlsLibA::_ITextBoxEvents), &LIBID_EditCtlsLibA, 1, 11>::DispEventAdvise(controls.txtbox1A);
 	}
 	ipaddrAWnd.SubclassWindow(GetDlgItem(IDC_IPADDRA));
 	ipaddrAWnd.QueryControl(__uuidof(EditCtlsLibA::IIPAddressBox), reinterpret_cast<LPVOID*>(&controls.ipaddrA));
 	if(controls.ipaddrA) {
-		IDispEventImpl<IDC_IPADDRA, CMainDlg, &__uuidof(EditCtlsLibA::_IIPAddressBoxEvents), &LIBID_EditCtlsLibA, 1, 10>::DispEventAdvise(controls.ipaddrA);
+		IDispEventImpl<IDC_IPADDRA, CMainDlg, &__uuidof(EditCtlsLibA::_IIPAddressBoxEvents), &LIBID_EditCtlsLibA, 1, 11>::DispEventAdvise(controls.ipaddrA);
 	}
 	hkboxAWnd.SubclassWindow(GetDlgItem(IDC_HKBOXA));
 	hkboxAWnd.QueryControl(__uuidof(EditCtlsLibA::IHotKeyBox), reinterpret_cast<LPVOID*>(&controls.hkboxA));
 	if(controls.hkboxA) {
-		IDispEventImpl<IDC_HKBOXA, CMainDlg, &__uuidof(EditCtlsLibA::_IHotKeyBoxEvents), &LIBID_EditCtlsLibA, 1, 10>::DispEventAdvise(controls.hkboxA);
+		IDispEventImpl<IDC_HKBOXA, CMainDlg, &__uuidof(EditCtlsLibA::_IHotKeyBoxEvents), &LIBID_EditCtlsLibA, 1, 11>::DispEventAdvise(controls.hkboxA);
 	}
 	udtxtboxAWnd.SubclassWindow(GetDlgItem(IDC_UDTXTBOXA));
 	udtxtboxAWnd.QueryControl(__uuidof(EditCtlsLibA::IUpDownTextBox), reinterpret_cast<LPVOID*>(&controls.udtxtboxA));
 	if(controls.udtxtboxA) {
-		IDispEventImpl<IDC_UDTXTBOXA, CMainDlg, &__uuidof(EditCtlsLibA::_IUpDownTextBoxEvents), &LIBID_EditCtlsLibA, 1, 10>::DispEventAdvise(controls.udtxtboxA);
+		IDispEventImpl<IDC_UDTXTBOXA, CMainDlg, &__uuidof(EditCtlsLibA::_IUpDownTextBoxEvents), &LIBID_EditCtlsLibA, 1, 11>::DispEventAdvise(controls.udtxtboxA);
 	}
 
 	// force control resize

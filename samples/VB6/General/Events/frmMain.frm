@@ -1,8 +1,8 @@
 VERSION 5.00
-Object = "{A8F9B8E7-E699-4FCE-A647-72C877F8E632}#1.10#0"; "EditCtlsU.ocx"
-Object = "{EA57D88C-8144-415A-9666-B7067B74C295}#1.10#0"; "EditCtlsA.ocx"
+Object = "{A8F9B8E7-E699-4FCE-A647-72C877F8E632}#1.11#0"; "EditCtlsU.ocx"
+Object = "{EA57D88C-8144-415A-9666-B7067B74C295}#1.11#0"; "EditCtlsA.ocx"
 Begin VB.Form frmMain 
-   Caption         =   "EditControls 1.10 - Events Sample"
+   Caption         =   "EditControls 1.11 - Events Sample"
    ClientHeight    =   6555
    ClientLeft      =   60
    ClientTop       =   750

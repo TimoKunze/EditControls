@@ -3,7 +3,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 #pragma once
-#import <libid:A8F9B8E7-E699-4fce-A647-72C877F8E632> version("1.10") named_guids, no_namespace, raw_dispinterfaces
+#import <libid:A8F9B8E7-E699-4fce-A647-72C877F8E632> version("1.11") named_guids, no_namespace, raw_dispinterfaces
 
 class CMainDlg :
     public CAxDialogImpl<CMainDlg>,
@@ -11,7 +11,7 @@ class CMainDlg :
     public CDialogResize<CMainDlg>,
     public CComObjectRootEx<CComSingleThreadModel>,
     public CComCoClass<CMainDlg>,
-    public IDispEventImpl<IDC_EDITCTLSEDIT, CMainDlg, &__uuidof(_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 10>
+    public IDispEventImpl<IDC_EDITCTLSEDIT, CMainDlg, &__uuidof(_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 11>
 {
 public:
 	enum { IDD = IDD_MAINDLG };

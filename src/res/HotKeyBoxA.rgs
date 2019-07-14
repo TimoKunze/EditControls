@@ -1,18 +1,18 @@
 HKCR
 {
-	EditCtlsA.HotKeyBox.1 = s 'TimoSoft HotKeyBox Control 1.10 (ANSI)'
+	EditCtlsA.HotKeyBox.1 = s 'TimoSoft HotKeyBox Control 1.11 (ANSI)'
 	{
 		CLSID = s '{5DFB60A6-4118-4249-828A-7AAE9FD269F6}'
 		'Insertable'
 	}
-	EditCtlsA.HotKeyBox = s 'TimoSoft HotKeyBox Control 1.10 (ANSI)'
+	EditCtlsA.HotKeyBox = s 'TimoSoft HotKeyBox Control 1.11 (ANSI)'
 	{
 		CLSID = s '{5DFB60A6-4118-4249-828A-7AAE9FD269F6}'
 		CurVer = s 'EditCtlsA.HotKeyBox.1'
 	}
 	NoRemove CLSID
 	{
-		ForceRemove {5DFB60A6-4118-4249-828A-7AAE9FD269F6} = s 'TimoSoft HotKeyBox Control 1.10 (ANSI)'
+		ForceRemove {5DFB60A6-4118-4249-828A-7AAE9FD269F6} = s 'TimoSoft HotKeyBox Control 1.11 (ANSI)'
 		{
 			ProgID = s 'EditCtlsA.HotKeyBox.1'
 			VersionIndependentProgID = s 'EditCtlsA.HotKeyBox'
@@ -37,7 +37,7 @@ HKCR
 				'1' = s '%OLEMISC%'
 			}
 			'TypeLib' = s '{EA57D88C-8144-415a-9666-B7067B74C295}'
-			'Version' = s '1.10'
+			'Version' = s '1.11'
 		}
 	}
 }

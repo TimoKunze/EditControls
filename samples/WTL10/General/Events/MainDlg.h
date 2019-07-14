@@ -5,8 +5,8 @@
 #pragma once
 #include <initguid.h>
 
-#import <libid:A8F9B8E7-E699-4fce-A647-72C877F8E632> version("1.10") raw_dispinterfaces
-#import <libid:EA57D88C-8144-415a-9666-B7067B74C295> version("1.10") raw_dispinterfaces
+#import <libid:A8F9B8E7-E699-4fce-A647-72C877F8E632> version("1.11") raw_dispinterfaces
+#import <libid:EA57D88C-8144-415a-9666-B7067B74C295> version("1.11") raw_dispinterfaces
 
 DEFINE_GUID(LIBID_EditCtlsLibU, 0xA8F9B8E7, 0xE699, 0x4FCE, 0xA6, 0x47, 0x72, 0xC8, 0x77, 0xF8, 0xE6, 0x32);
 DEFINE_GUID(LIBID_EditCtlsLibA, 0xEA57D88C, 0x8144, 0x415A, 0x96, 0x66, 0xB7, 0x06, 0x7B, 0x74, 0xC2, 0x95);
@@ -17,16 +17,16 @@ class CMainDlg :
     public CDialogResize<CMainDlg>,
     public CComObjectRootEx<CComSingleThreadModel>,
     public CComCoClass<CMainDlg>,
-    public IDispEventImpl<IDC_TXTBOX0U, CMainDlg, &__uuidof(EditCtlsLibU::_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 10>,
-    public IDispEventImpl<IDC_TXTBOX1U, CMainDlg, &__uuidof(EditCtlsLibU::_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 10>,
-    public IDispEventImpl<IDC_IPADDRU, CMainDlg, &__uuidof(EditCtlsLibU::_IIPAddressBoxEvents), &LIBID_EditCtlsLibU, 1, 10>,
-    public IDispEventImpl<IDC_HKBOXU, CMainDlg, &__uuidof(EditCtlsLibU::_IHotKeyBoxEvents), &LIBID_EditCtlsLibU, 1, 10>,
-    public IDispEventImpl<IDC_UDTXTBOXU, CMainDlg, &__uuidof(EditCtlsLibU::_IUpDownTextBoxEvents), &LIBID_EditCtlsLibU, 1, 10>,
-    public IDispEventImpl<IDC_TXTBOX0A, CMainDlg, &__uuidof(EditCtlsLibA::_ITextBoxEvents), &LIBID_EditCtlsLibA, 1, 10>,
-    public IDispEventImpl<IDC_TXTBOX1A, CMainDlg, &__uuidof(EditCtlsLibA::_ITextBoxEvents), &LIBID_EditCtlsLibA, 1, 10>,
-    public IDispEventImpl<IDC_IPADDRA, CMainDlg, &__uuidof(EditCtlsLibA::_IIPAddressBoxEvents), &LIBID_EditCtlsLibA, 1, 10>,
-    public IDispEventImpl<IDC_HKBOXA, CMainDlg, &__uuidof(EditCtlsLibA::_IHotKeyBoxEvents), &LIBID_EditCtlsLibA, 1, 10>,
-    public IDispEventImpl<IDC_UDTXTBOXA, CMainDlg, &__uuidof(EditCtlsLibA::_IUpDownTextBoxEvents), &LIBID_EditCtlsLibA, 1, 10>
+    public IDispEventImpl<IDC_TXTBOX0U, CMainDlg, &__uuidof(EditCtlsLibU::_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 11>,
+    public IDispEventImpl<IDC_TXTBOX1U, CMainDlg, &__uuidof(EditCtlsLibU::_ITextBoxEvents), &LIBID_EditCtlsLibU, 1, 11>,
+    public IDispEventImpl<IDC_IPADDRU, CMainDlg, &__uuidof(EditCtlsLibU::_IIPAddressBoxEvents), &LIBID_EditCtlsLibU, 1, 11>,
+    public IDispEventImpl<IDC_HKBOXU, CMainDlg, &__uuidof(EditCtlsLibU::_IHotKeyBoxEvents), &LIBID_EditCtlsLibU, 1, 11>,
+    public IDispEventImpl<IDC_UDTXTBOXU, CMainDlg, &__uuidof(EditCtlsLibU::_IUpDownTextBoxEvents), &LIBID_EditCtlsLibU, 1, 11>,
+    public IDispEventImpl<IDC_TXTBOX0A, CMainDlg, &__uuidof(EditCtlsLibA::_ITextBoxEvents), &LIBID_EditCtlsLibA, 1, 11>,
+    public IDispEventImpl<IDC_TXTBOX1A, CMainDlg, &__uuidof(EditCtlsLibA::_ITextBoxEvents), &LIBID_EditCtlsLibA, 1, 11>,
+    public IDispEventImpl<IDC_IPADDRA, CMainDlg, &__uuidof(EditCtlsLibA::_IIPAddressBoxEvents), &LIBID_EditCtlsLibA, 1, 11>,
+    public IDispEventImpl<IDC_HKBOXA, CMainDlg, &__uuidof(EditCtlsLibA::_IHotKeyBoxEvents), &LIBID_EditCtlsLibA, 1, 11>,
+    public IDispEventImpl<IDC_UDTXTBOXA, CMainDlg, &__uuidof(EditCtlsLibA::_IUpDownTextBoxEvents), &LIBID_EditCtlsLibA, 1, 11>
 {
 public:
 	enum { IDD = IDD_MAINDLG };

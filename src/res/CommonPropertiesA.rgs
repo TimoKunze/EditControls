@@ -1,6 +1,6 @@
 HKCR
 {
-	EditCtlsA.CommonProperties.1 = s 'TimoSoft CommonProperties Class 1.10 (ANSI)'
+	EditCtlsA.CommonProperties.1 = s 'TimoSoft CommonProperties Class 1.11 (ANSI)'
 	{
 		CLSID = s '{BE3824B6-1761-494b-8399-648B23834DB8}'
 	}

@@ -63,7 +63,7 @@ IDR_MAINFRAME           ICON                    "res\\Events.ico"
 IDD_MAINDLG DIALOGEX 0, 0, 528, 269
 STYLE DS_SETFONT | DS_FIXEDSYS | DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
 EXSTYLE WS_EX_APPWINDOW
-CAPTION "EditControls 1.10 - Events Sample"
+CAPTION "EditControls 1.11 - Events Sample"
 FONT 8, "MS Shell Dlg", 400, 0, 0x0
 BEGIN
     CONTROL         "",IDC_TXTBOX0U,"{336D591B-C170-4E59-96C7-6E4848F3F8BC}",0x0,0,0,320,64
@@ -103,12 +103,12 @@ BEGIN
     BEGIN
         BLOCK "040904B0"
         BEGIN
-            VALUE "FileDescription", "Events sample for TimoSoft EditControls 1.10"
+            VALUE "FileDescription", "Events sample for TimoSoft EditControls 1.11"
             VALUE "FileVersion", "1.0.0.0"
             VALUE "InternalName", "Events"
             VALUE "OriginalFilename", "Events.exe"
-            VALUE "ProductName", "TimoSoft EditControls 1.10"
-            VALUE "ProductVersion", "1.10"
+            VALUE "ProductName", "TimoSoft EditControls 1.11"
+            VALUE "ProductVersion", "1.11"
         END
     END
     BLOCK "VarFileInfo"

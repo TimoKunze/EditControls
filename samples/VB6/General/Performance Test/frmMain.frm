@@ -1,7 +1,7 @@
 VERSION 5.00
-Object = "{A8F9B8E7-E699-4FCE-A647-72C877F8E632}#1.10#0"; "EditCtlsU.ocx"
+Object = "{A8F9B8E7-E699-4FCE-A647-72C877F8E632}#1.11#0"; "EditCtlsU.ocx"
 Begin VB.Form frmMain 
-   Caption         =   "EditControls 1.10 - Performance Demonstration Sample"
+   Caption         =   "EditControls 1.11 - Performance Demonstration Sample"
    ClientHeight    =   5115
    ClientLeft      =   60
    ClientTop       =   450

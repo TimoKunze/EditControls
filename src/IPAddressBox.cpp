@@ -67,6 +67,8 @@ IPAddressBox::IPAddressBox()
 		containedEdit[i].m_pObject = this;
 		containedEdit[i].m_dwMsgMapID = i + 1;
 		containedEdit[i].m_pfnSuperWindowProc = ::DefWindowProc;
+
+		cachedWParam[i] = 0;
 	}
 
 	properties.font.InitializePropertyWatcher(this, DISPID_IPADDRBOX_FONT);
@@ -3151,9 +3153,17 @@ LRESULT IPAddressBox::OnFieldChangedNotification(int /*controlID*/, LPNMHDR pNot
 	return 0;
 }
 
-LRESULT IPAddressBox::OnEditChar(LONG index, UINT /*message*/, WPARAM wParam, LPARAM /*lParam*/, BOOL& wasHandled)
+LRESULT IPAddressBox::OnEditChar(LONG index, UINT message, WPARAM wParam, LPARAM lParam, BOOL& wasHandled)
 {
 	wasHandled = FALSE;
+
+	BOOL changedWParam = FALSE;
+	if(cachedWParam[index - 1]) {
+		wParam = cachedWParam[index - 1];
+		cachedWParam[index - 1] = 0;
+		changedWParam = TRUE;
+	}
+
 	if(!(properties.disabledEvents & deKeyboardEvents)) {
 		SHORT keyAscii = static_cast<SHORT>(wParam);
 		if(SUCCEEDED(Raise_KeyPress(index, &keyAscii))) {
@@ -3164,6 +3174,12 @@ LRESULT IPAddressBox::OnEditChar(LONG index, UINT /*message*/, WPARAM wParam, LP
 			}
 		}
 	}
+
+	if(!wasHandled && changedWParam) {
+		wasHandled = TRUE;
+		return containedEdit[index - 1].DefWindowProc(message, wParam, lParam);
+	}
+
 	return 0;
 }
 
@@ -3173,6 +3189,11 @@ LRESULT IPAddressBox::OnEditDestroy(LONG index, UINT /*message*/, WPARAM /*wPara
 	containedEdit[index - 1].SendMessage(WM_SETFONT, NULL, MAKELPARAM(FALSE, 0));
 	wasHandled = FALSE;
 	return 0;
+}
+
+LRESULT IPAddressBox::OnEditIMEChar(LONG index, UINT /*message*/, WPARAM wParam, LPARAM lParam, BOOL& /*wasHandled*/)
+{
+	return containedEdit[index - 1].SendMessage(WM_CHAR, wParam, lParam);
 }
 
 LRESULT IPAddressBox::OnEditKeyDown(LONG index, UINT message, WPARAM wParam, LPARAM lParam, BOOL& /*wasHandled*/)
@@ -3190,6 +3211,14 @@ LRESULT IPAddressBox::OnEditKeyDown(LONG index, UINT message, WPARAM wParam, LPA
 			}
 		}
 	}
+
+	MSG msg;
+	if(PeekMessage(&msg, containedEdit[index - 1], WM_CHAR, WM_CHAR, PM_NOREMOVE)) {
+		cachedWParam[index - 1] = msg.wParam;
+	} else {
+		cachedWParam[index - 1] = 0;
+	}
+
 	return containedEdit[index - 1].DefWindowProc(message, wParam, lParam);
 }
 
@@ -3208,6 +3237,14 @@ LRESULT IPAddressBox::OnEditKeyUp(LONG index, UINT message, WPARAM wParam, LPARA
 			}
 		}
 	}
+
+	MSG msg;
+	if(PeekMessage(&msg, containedEdit[index - 1], WM_CHAR, WM_CHAR, PM_NOREMOVE)) {
+		cachedWParam[index - 1] = msg.wParam;
+	} else {
+		cachedWParam[index - 1] = 0;
+	}
+
 	return containedEdit[index - 1].DefWindowProc(message, wParam, lParam);
 }
 

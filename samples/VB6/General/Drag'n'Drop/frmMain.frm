@@ -1,7 +1,7 @@
 VERSION 5.00
-Object = "{A8F9B8E7-E699-4FCE-A647-72C877F8E632}#1.10#0"; "EditCtlsU.ocx"
+Object = "{A8F9B8E7-E699-4FCE-A647-72C877F8E632}#1.11#0"; "EditCtlsU.ocx"
 Begin VB.Form frmMain 
-   Caption         =   "EditControls 1.10 - Drag'n'Drop Sample"
+   Caption         =   "EditControls 1.11 - Drag'n'Drop Sample"
    ClientHeight    =   3975
    ClientLeft      =   60
    ClientTop       =   450
